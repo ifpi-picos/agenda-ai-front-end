@@ -1,38 +1,148 @@
-.App {
-  text-align: center;
+main {
+  flex-direction: row;
+  justify-content: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-index {
+  display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+main .parte-escrita {
+  margin: auto;
+  padding: 0 50px 0 50px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+main .titulo {
+  font-family: 'Pacifico', cursive;
+  font-size: 30px;
+  color: #FA240F;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+main .subtitulo {
+  font-family: 'Roboto', cursive;
+  text-align: center;
+  font-size: 24px;
+  color: #FA240F;
+  padding: 0 50px 0 50px;
+}
+.subtitulo_tela_lanchonetes {
+  margin-top: 30px;
+}
+
+main .botoes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+main .botoes a {
+  height: 60px;
+  width: 190px;
+  margin-top: 25px;
+  justify-content: space-around;
+  text-align: center;
+  background-color: linear-gradient(to right, #FAF0EC, #FFF7E1);
+  border-radius: 50px;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  color: #FA240F;
+  border: 2px solid #FA240F;
+  transition: 0.3s;
+}
+
+main .botoes a:hover {
+  background-color: #FA240F;
+  color: #FFF7E1;
+}
+
+main .botoes h3 {
+  margin-top: 8px;
+}
+
+main .titulo-vantagens {
+  margin-top: 25px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 23px;
+  color: #FA240F;
+}
+
+main .vantagens {
+  margin-top: 25px;
+  color: #FA240F;
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+}
+
+main .titulo-sobre {
+  margin-top: 25px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  color: #FA240F;
+}
+
+main .sobre {
+  color: #FA240F;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+}
+
+.botao-cadastrar-cantina {
+  margin-top: 20px;
+  background-color: #FA240F;
+  border-radius: 3rem;
+  padding: 10px 20px;
+  color: #FAF0EC;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.botao-cadastrar-cantina:hover {
+  transform: scale(1.1);
+}
+
+aside {
+  margin: auto;
+  padding: 0 50px 0 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+}
+
+aside .desktop {
+  margin-top: 40px;
+  height: fit-content;
+  max-height: 400px;
+  width: fit-content;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px #656053, -5px -5px 0px #ffffff;
+}
+
+aside .telas-mobile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 90%;
+}
+
+aside .telas-mobile img {
+  height: fit-content;
+  max-height: 400px;
+  width: fit-content;
+  max-width: 30%;
+  border-radius: 25px;
+  margin: 0 5px 0 5px;
+}
+
+.mobile {
+  box-shadow: 5px 5px 0px #656053, -5px -5px 0px #ffffff;
 }
