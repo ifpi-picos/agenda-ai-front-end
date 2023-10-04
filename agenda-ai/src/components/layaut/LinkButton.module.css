@@ -1,0 +1,15 @@
+.btn {
+    background-color: #FAF0EC;
+    border: 2px solid #FA240F;
+    border-radius: 1em;
+    color: #FA240F;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    transition: 0.5s;
+    font-weight: bold;
+  }
+  
+  .btn:hover {
+    background-color: #FA240F;
+    color: #FAF0EC;
+  }

@@ -1,0 +1,13 @@
+.card_lanchonete {
+    background: #fdf1cf;
+    width: 350px;
+    height: 200px;
+    border-radius: 1rem;
+    margin: 20px 5px;
+    display: flex;
+    text-align: center;
+    color: #FA240F;
+    font-family: 'Roboto', sans-serif;
+    transition: 0.2s;
+    box-shadow: 5px 5px 0px #656053, -5px -5px 0px #ffffff;
+}

@@ -1,0 +1,69 @@
+
+.formulario_cantina {
+    border: 2px solid #FA240F;
+    border-radius: 2rem;
+    max-width: 900px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    box-shadow:  10px 10px 30px #afa8a5;
+}
+
+.formulario_cantina h1, h3 {
+    font-family: 'Lobster', cursive;
+    margin-bottom: 20px;
+    color: #FA240F;
+    text-align: center;
+}
+
+.formulario_cantina h1{
+    font-size: 20px;
+}
+.formulario_cantina h3 {
+    font-size: 20px;
+}
+
+.formulario_cantina label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #FA680F;
+}
+
+.formulario_cantina input {
+    border: none;
+    border-bottom: 2px solid #FA680F;
+    background: transparent;
+    margin: 10px 0 20px 0;
+    padding: 8px 0px 8px 10px;
+    outline: none;
+    width: 100%;
+}
+
+.botao_formulario {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    width: 150px;
+    margin: auto;
+    padding: 8px;
+    border-radius: 3rem;
+    border: 2px solid #FA240F;
+    background-color: #FFF7E1;
+    color: #FA240F;
+    transition: 0.3s;
+}
+
+.botao_formulario:hover {
+    background-color: #FA240F;
+    color: #FFF7E1;
+}
+
+@media (max-width: 650px) {
+    .formulario_cantina {
+        margin: 10px;
+        padding: 30px;
+    }
+    .formulario_cantina h1 {
+        font-size: 25px;
+    }
+}

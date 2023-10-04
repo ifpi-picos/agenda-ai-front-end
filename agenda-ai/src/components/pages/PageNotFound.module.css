@@ -1,0 +1,21 @@
+.pageNotFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    color: #EB3110;
+    font-family: 'Roboto', cursive;
+}
+
+.pageNotFound img {
+    max-width: 90%;
+    margin: auto;
+}
+
+.erroCod {
+    font-size: 50px;
+}
+
+.erroMsg {
+    font-size: 20px;
+}

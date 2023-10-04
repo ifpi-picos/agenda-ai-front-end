@@ -1,0 +1,70 @@
+.login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardLogin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 360px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #FA240F;
+    box-shadow: 5px 5px 0px #656053;
+}
+
+.cardLogin h1 {
+    font-family: 'Lobster', cursive;
+    color: #FA240F;
+    font-size: 50px;
+    margin-bottom: 20px; 
+}
+
+.formLogin {
+    width: 100%;
+}
+
+.inputDiv {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.cardLogin input[type="text"], input[type="number"], input[type="password"], input[type="email"] {
+    border: none;
+    border-bottom: 2px solid #FA680F;
+    background: transparent;
+    margin-top: 40px;
+    padding: 8px 0px 8px 10px;
+    outline: none;
+    width: 100%;
+}
+
+.icon {
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    color: #FA680F;
+}
+
+button[type="submit"] {
+    background: #FA240F;
+    color: #FFF7E1;
+    border-radius: 30px;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px 10px 10px 15px;
+    font-size: 15px;
+    margin: 30px 0;
+    cursor: pointer;
+}
+
+button a {
+    text-decoration: none;
+    color: #FFF7E1;
+}

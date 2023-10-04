@@ -1,0 +1,66 @@
+.cadastro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.cardCadastro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 360px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #FA240F;
+    box-shadow: 5px 5px 0px #656053;
+}
+
+.cardCadastro h1 {
+    font-family: 'Lobster', cursive;
+    color: #FA240F;
+    font-size: 50px;
+}
+
+.formCadastro {
+    width: 100%;
+}
+
+.formCadastro input {
+    border: none;
+    border-bottom: 2px solid #FA680F;
+    background: transparent;
+    margin-top: 40px;
+    padding: 8px 0px 8px 10px;
+    outline: none;
+    width: 100%;
+}
+
+.divSelect {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    color: #FA240F;
+}
+
+.divSelect select {
+    padding: 5px;
+    border: 1px solid #FA240F;
+    border-radius: 1em;
+}
+
+.inputSenha {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.icon {
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    color: #FA680F;
+}
