@@ -4,8 +4,8 @@ Um projeto universitário focado em agendamentos de lanches
 
 ### 📋 Pré-requisitos
 
-React
-NPM 
+* React
+* NPM 
 
 
 ### 🔧 Instalação
