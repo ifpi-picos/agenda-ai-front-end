@@ -8,7 +8,7 @@ Um projeto universitário focado em agendamentos de lanches
 * NPM 
 
 
-### 🔧 Instalação
+### 🔧 Instalação e execução
 
 
 Clone do repositório:
@@ -17,10 +17,16 @@ Clone do repositório:
 git clone https://github.com/ifpi-picos/time-bag-front-end
 ```
 
-Instalação das dependências:
+Instale as dependências:
 
 ```
 npm install
+```
+
+Navegue até a pasta agenda-ai:
+
+```
+cd agenda-ai
 ```
 
 Execução do projeto:
@@ -40,3 +46,5 @@ npm start
 
 * **Carlos Michael** - *Aluno do IFPI* - [Github](https://github.com/Seinenk)
 * **Paulo André** - *Aluno do IFPI* - [Github](https://github.com/pauloandrepassos)
+
+
