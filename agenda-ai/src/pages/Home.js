@@ -1,5 +1,5 @@
 import styles from './Home.module.css'
-import CardLanchonete from '../layaut/CardLanchonete'
+import CardLanchonete from '../components/layaut/CardLanchonete'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'

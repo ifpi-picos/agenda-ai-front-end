@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Apresentacao from './components/pages/Apresentacao';
+import Apresentacao from './pages/Apresentacao';
 import Container from './components/layaut/Container';
 import Navbar from './components/layaut/Navbar';
-import FormCadastroCantina from './components/pages/cadastro_login/FormCadastroCantina';
-import Home from './components/pages/Home';
-import PageNotFound from './components/pages/PageNotFound';
-import Cadastro from './components/pages/cadastro_login/Cadastro';
-import Login from './components/pages/cadastro_login/Login';
+import FormCadastroCantina from './pages/cadastro_login/FormCadastroCantina';
+import Home from './pages/Home';
+import PageNotFound from './pages/PageNotFound';
+import Cadastro from './pages/cadastro_login/Cadastro';
+import Login from './pages/cadastro_login/Login';
 
 function App() {
   return (

@@ -1,6 +1,6 @@
-import LinkButton from "../layaut/LinkButton"
+import LinkButton from "../components/layaut/LinkButton"
 import styles from './Apresentacao.module.css'
-import logo from '../../img/logo-agendaai.png'
+import logo from '../img/logo-agendaai.png'
 
 function Apresentacao() {
     return (

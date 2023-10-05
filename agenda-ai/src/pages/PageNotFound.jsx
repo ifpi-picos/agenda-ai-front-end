@@ -1,5 +1,5 @@
 import styles from "./PageNotFound.module.css"
-import imgErro from "../../img/agendaai_erro_img.png"
+import imgErro from "../img/agendaai_erro_img.png"
 
 function PageNotFound() {
     return (
