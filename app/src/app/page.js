@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import logo from '@/components/img/logo-agendaai.png'
 
-export default function Home() {
+export default function Apresentacao() {
   return (
     <>
     <Navbar />
@@ -40,7 +40,7 @@ export default function Home() {
                 </ol>
             </div>
             <div className="botoes">
-                <Link className='btn' href="/FormCadastroCantina">
+                <Link className='btn' href="/cadastroLanchonete">
                     Cadastrar Cantina
                 </Link>
             </div>
