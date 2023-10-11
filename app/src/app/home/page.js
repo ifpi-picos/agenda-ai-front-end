@@ -46,7 +46,8 @@ export default function Home() {
                     lanchonetes.map((lanchonete) => (
                         <CardLanchonete 
                         id={lanchonete.id}
-                        nome={lanchonete.nome}
+                        nomeLanchonete={lanchonete.nomeLanchonete}
+                        endereco={lanchonete.endereco}
                         />
                     ))}
             {lanchonetes.length == 0 && (

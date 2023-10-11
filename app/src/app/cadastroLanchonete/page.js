@@ -8,14 +8,17 @@ import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 
 const schema = yup.object().shape({
-    nome: yup.string().required('O nome deve vser preenchido'),
-    cnpj: yup.string().required('O cnpj deve vser preenchido'),
-    cep: yup.string().required('O cep deve vser preenchido'),
-    logradouro: yup.string().required('O logradouro deve vser preenchido'),
-    numero: yup.string().required('O numero deve vser preenchido'),
-    bairro: yup.string().required('O bairro deve vser preenchido'),
-    cidade: yup.string().required('O cidade deve vser preenchido'),
-    estado: yup.string().required('O estado deve vser preenchido'),
+    nomeUsuario: yup.string().required('O nome deve ser preenchido'),
+    email: yup.string().required('O nome deve ser preenchido'),
+    password: yup.string().required('O nome deve ser preenchido'),
+    nomeLanchonete: yup.string().required('O nome deve ser preenchido'),
+    cnpj: yup.string().required('O cnpj deve ser preenchido'),
+    cep: yup.string().required('O cep deve ser preenchido'),
+    logradouro: yup.string().required('O logradouro deve ser preenchido'),
+    numero: yup.string().required('O numero deve ser preenchido'),
+    bairro: yup.string().required('O bairro deve ser preenchido'),
+    cidade: yup.string().required('O cidade deve ser preenchido'),
+    estado: yup.string().required('O estado deve ser preenchido'),
 })
 
 export default function FormCadastroCantina() {
@@ -26,7 +29,10 @@ export default function FormCadastroCantina() {
     })
 
     const onSubmit = (data) => axios.post("http://localhost:3001/lanchonetes/criar", {
-        nome: data.nome,
+        nomeUsuario: data.nomeUsuario,
+        email: data.email,
+        password: data.password,
+        nomeLanchonete: data.nomeLanchonete,
         cnpj: data.cnpj,
         cep: data.cep,
         logradouro: data.logradouro,
@@ -43,13 +49,37 @@ export default function FormCadastroCantina() {
             <Navbar />
             <form onSubmit={handleSubmit(onSubmit)} className={styles.formulario_cantina}>
                 <h1>Formulário para cadastro de sua Cantina</h1>
-                <label htmlFor="nomeCantina">Nome:</label>
+                <label htmlFor="nomeUsuario">Nome do Gerente:</label>
                 <input 
                     type="text"
-                    id="nomeCantina"
-                    name="nomeCantina"
+                    id="nomeUsuario"
+                    name="nomeUsuario"
+                    placeholder="Digite o nome do gerente"
+                    {...register("nomeUsuario")}
+                />
+                <label htmlFor="email">Email:</label>
+                <input 
+                    type="text"
+                    id="email"
+                    name="email"
+                    placeholder="Digite o nome do gerente"
+                    {...register("email")}
+                />
+                <label htmlFor="password">Senha:</label>
+                <input 
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Digite o nome do gerente"
+                    {...register("password")}
+                />
+                <label htmlFor="nomeLanchonete">Nome da Cantina:</label>
+                <input 
+                    type="text"
+                    id="nomeLanchonete"
+                    name="nomeLanchonete"
                     placeholder="Digite o nome da cantina"
-                    {...register("nome")}
+                    {...register("nomeLanchonete")}
                 />
                 <label htmlFor="cnpj">CNPJ:</label>
                 <input 
