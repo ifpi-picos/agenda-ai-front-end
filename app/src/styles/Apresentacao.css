@@ -1,17 +1,24 @@
 
+.layoutApresentacao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .apresentacao {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 50%;
     text-align: center;
     padding: 20px;
 }
 
 .apresentacao h1 {
     font-family: 'Pacifico', cursive;
-    font-size: 40px;
+    font-size: 60px;
     color: #FA240F;
+    margin-bottom: 15px;
 }
 
 .apresentacao h2 {
@@ -40,8 +47,10 @@
     text-decoration: none;
     transition: 0.5s;
     font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
 }
-  
+
 .btn:hover {
     background-color: #FA240F;
     color: #FAF0EC;
@@ -75,10 +84,46 @@
     color: #FA240F;
 }
 
-.apresentacao .img img {
-    width: 300px;
-    height: 300px;
+.amostragem {
     margin: auto;
+    padding: 0 50px 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+}
+
+.amostragem .imgDesktop {
+    margin-top: 40px;
+    height: fit-content;
+    max-height: 400px;
+    width: fit-content;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px #656053, -5px -5px 0px #ffffff;
+}
+
+.amostragem .telas-mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 90%;
+}
+
+.amostragem .telas-mobile img {
+    height: fit-content;
+    max-height: 400px;
+    width: fit-content;
+    max-width: 30%;
+    border-radius: 25px;
+    margin: 0 5px 0 5px;
+} 
+
+.mobile {
+    box-shadow: 5px 5px 0px #656053, -5px -5px 0px #ffffff;
 }
 
 .img img {

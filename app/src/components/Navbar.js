@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import './Navbar.css'
 
-import logo from '@/components/img/logo-agendaai.png'
+import logo from '/public/logo-agendaai.png'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
