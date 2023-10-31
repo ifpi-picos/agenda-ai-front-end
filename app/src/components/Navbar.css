@@ -4,6 +4,7 @@
     background: linear-gradient(to right, #FA680F, #FA240F);
     padding: 1em;
     width: 100%;
+    border-bottom: 3px solid #ffffff;
 }
 
 .container {
