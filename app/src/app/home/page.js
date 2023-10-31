@@ -19,37 +19,38 @@ export default function Home() {
                 'Content-Type': 'application/json'
             },
         }).then(resp => resp.json())
-        .then((data) => {
-            console.log(data)
-            setLanchonetes(data)
-            setLoading(false);
-        })
-        .catch((err) => console.log(err))
+            .then((data) => {
+                console.log(data)
+                setLanchonetes(data)
+                setLoading(false);
+            })
+            .catch((err) => console.log(err))
     }, [])
 
     return (
         <>
             <Navbar />
-            <main className={styles.home_page}>
-                <div className={styles.search_section}>
-                    <h3>Lanchonetes disponíveis:</h3>
-                    <div className={styles.search_bar}>
-                        <input
-                            type="text"
-                            placeholder="Buscar lanchonetes..."
-                        />
-                        <div className={styles.search_icon}>
-                            <FontAwesomeIcon icon={faSearch} />
+            {loading ? (
+                <Loading />
+            ) : (
+                <main className={styles.home_page}>
+                    <div className={styles.search_section}>
+                        <h3>Lanchonetes disponíveis:</h3>
+                        <div className={styles.search_bar}>
+                            <input
+                                type="text"
+                                placeholder="Buscar lanchonetes..."
+                            />
+                            <div className={styles.search_icon}>
+                                <FontAwesomeIcon icon={faSearch} />
+                            </div>
                         </div>
                     </div>
-                </div>
-                {loading ? (
-                    <Loading />
-                ) : (
+
                     <div className={styles.lanchonetes}>
                         {lanchonetes.length > 0 &&
                             lanchonetes.map((lanchonete) => (
-                                <CardLanchonete 
+                                <CardLanchonete
                                     id={lanchonete.id}
                                     nomeLanchonete={lanchonete.nomeLanchonete}
                                     endereco={lanchonete.endereco}
@@ -60,8 +61,9 @@ export default function Home() {
                             <p>Não há lanchonetes cadastradas!</p>
                         )}
                     </div>
-                )}
-            </main>
+
+                </main>
+            )}
         </>
     )
 }

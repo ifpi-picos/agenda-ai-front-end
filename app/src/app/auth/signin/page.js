@@ -28,17 +28,16 @@ export default function Signin() {
             password: data.password
         }).then((response) => {
             localStorage.setItem('token', response.data.token);
-            router.push('/home')
+            return router.push('/home')
         }).catch((error) => {
             if (error.response && error.response.status === 401) {
-                setErrorMessage('Credenciais inválidas');
+                setLoading(false);
+                return setErrorMessage('Credenciais inválidas');
             } else {
-                setErrorMessage('Ocorreu um erro no servidor. Tente novamente mais tarde.');
+                setLoading(false);
+                return setErrorMessage('Ocorreu um erro no servidor. Tente novamente mais tarde.');
             }
         })
-        .finally(() => {
-            setLoading(false); // Define loading como falso após a conclusão da solicitação
-        });
     }
     return (
         <>
