@@ -14,7 +14,7 @@ import styles from '@/app/auth/signup/signup.module.css'
 
 
 const schema = yup.object().shape({
-    nome: yup.string().required('O nome deve vser preenchido'),
+    nomeUsuario: yup.string().required('O nome deve vser preenchido'),
     email: yup.string().required('O email deve ser preenchido'),
     password: yup.string().required('A senha deve ser preenchida')
 })
@@ -27,12 +27,12 @@ export default function signup() {
     })
 
     const onSubmit = (data) => axios.post("http://localhost:3001/auth/signup", {
-        nome: data.nome,
+        nomeUsuario: data.nomeUsuario,
         email: data.email,
         password: data.password,
         tipo: 'cliente'
     }).then((response) => {
-        router.push('/home')
+        router.push('/auth/signin')
     })
 
     return (
@@ -44,11 +44,11 @@ export default function signup() {
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.formCadastro}>
                     <input
                         type='text'
-                        id='nome'
-                        name='nome'
+                        id='nomeUsuario'
+                        name='nomeUsuario'
                         placeholder='Digite seu nome'
                         required
-                        {...register("nome")}
+                        {...register("nomeUsuario")}
                     />
                     <input
                         type='text'

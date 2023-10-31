@@ -6,10 +6,11 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import { useEffect, useState } from 'react'
-
+import Loading from '@/components/Loading'
 
 export default function Home() {
     const [lanchonetes, setLanchonetes] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         fetch('http://localhost:3001/lanchonetes/listar', {
@@ -21,6 +22,7 @@ export default function Home() {
         .then((data) => {
             console.log(data)
             setLanchonetes(data)
+            setLoading(false);
         })
         .catch((err) => console.log(err))
     }, [])
@@ -41,19 +43,24 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                <div className={styles.lanchonetes}>
-                {lanchonetes.length > 0 &&
-                    lanchonetes.map((lanchonete) => (
-                        <CardLanchonete 
-                        id={lanchonete.id}
-                        nomeLanchonete={lanchonete.nomeLanchonete}
-                        endereco={lanchonete.endereco}
-                        />
-                    ))}
-            {lanchonetes.length == 0 && (
-                <p>Não há projetos cadastrados!</p>
-            )}
-                </div>
+                {loading ? (
+                    <Loading />
+                ) : (
+                    <div className={styles.lanchonetes}>
+                        {lanchonetes.length > 0 &&
+                            lanchonetes.map((lanchonete) => (
+                                <CardLanchonete 
+                                    id={lanchonete.id}
+                                    nomeLanchonete={lanchonete.nomeLanchonete}
+                                    endereco={lanchonete.endereco}
+                                />
+                            ))
+                        }
+                        {lanchonetes.length === 0 && (
+                            <p>Não há lanchonetes cadastradas!</p>
+                        )}
+                    </div>
+                )}
             </main>
         </>
     )

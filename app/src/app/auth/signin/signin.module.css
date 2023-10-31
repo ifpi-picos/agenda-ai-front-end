@@ -56,6 +56,13 @@
     width: 20px;
 }
 
+.errorMessage {
+    color: #FA240F;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 .submitButton {
     background: #FA240F;
     color: #FFF7E1;
