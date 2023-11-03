@@ -28,7 +28,12 @@ export default function Signin() {
             password: data.password
         }).then((response) => {
             localStorage.setItem('token', response.data.token);
-            return router.push('/home')
+            
+            if (response.data.tipo === 'cliente') {
+                return router.push('/home')
+            } else if (response.data.tipo === 'gerente') {
+                return router.push(`/gerente/${response.data.idLanchonete}`)
+            }
         }).catch((error) => {
             if (error.response && error.response.status === 401) {
                 setLoading(false);
