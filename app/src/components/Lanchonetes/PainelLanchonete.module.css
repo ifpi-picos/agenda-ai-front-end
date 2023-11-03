@@ -1,0 +1,62 @@
+.painelLanchonete {
+    margin: auto;
+    margin-top: 20px;
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 5px 5px 0px #656053;
+    border-radius: 1em;
+    cursor: default;
+    background: #fdf1cf;
+    overflow: hidden;
+}
+
+.imageArea {
+    width: 50%;
+    display: flex;
+}
+
+.painelLanchonete img {
+    width: 400px;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    border-radius: 1em;
+}
+
+.textInfo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FA240F;
+    border-bottom-right-radius: 15px;
+}
+
+.textInfo h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 30px;
+}
+
+.textInfo h3 {
+    font-size: 18px;
+}
+
+.textDescryption {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.singleInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
