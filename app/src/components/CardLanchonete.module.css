@@ -12,6 +12,10 @@
     box-shadow: 5px 5px 0px #656053, -5px -5px 0px #ffffff;
 }
 
+.card a {
+    text-decoration: none; /* Remover a sublinhado do link */
+}
+
 .divImagem {
     background-color: #FA240F;
     width: 45%;

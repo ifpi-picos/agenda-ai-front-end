@@ -1,3 +1,4 @@
+
 import styles from '@/components/Lanchonetes/PainelLanchonete.module.css'
 import Image from 'next/image'
 import imagemLanchonete from '/public/imagem-lanchonete1.jpg'
@@ -7,19 +8,27 @@ import { faClock } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
-export default function PainelLanchonete() {
+export default function PainelLanchonete({ lanchonete }) {
+    const endereco = lanchonete.endereco;
+    const enderecoFormatado = `${endereco.logradouro}, ${endereco.numero} - ${endereco.bairro}, ${endereco.cidade}`;
+
+    const enderecoGoogleMapsURL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(enderecoFormatado)}`;
 
     return (
         <div className={styles.painelLanchonete}>
             <div className={styles.imageArea}>
-                <Image src={imagemLanchonete}/>
+                <Image src={imagemLanchonete} />
             </div>
             <div className={styles.textInfo}>
-                <h1>Cantina - IFPI Picos</h1>
+                <h1>{lanchonete.nomeLanchonete}</h1>
                 <div className={styles.textDescryption}>
                     <div className={styles.singleInfo}>
                         <FontAwesomeIcon className={styles.icon} icon={faLocationDot} />
-                        <h3>Parque Industrial, Picos</h3>
+                        <h3>
+                            <a href={enderecoGoogleMapsURL} target="_blank" rel="noopener noreferrer">
+                                {enderecoFormatado}
+                            </a>
+                        </h3>
                     </div>
                     <div className={styles.singleInfo}>
                         <FontAwesomeIcon className={styles.icon} icon={faCalendarDays} />

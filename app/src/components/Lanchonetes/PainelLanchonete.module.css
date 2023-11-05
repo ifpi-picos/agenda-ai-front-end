@@ -1,6 +1,7 @@
 .painelLanchonete {
     margin: auto;
     margin-top: 20px;
+    margin-bottom: 20px;
     padding: 30px;
     width: 100%;
     display: flex;
@@ -20,7 +21,7 @@
 }
 
 .painelLanchonete img {
-    width: 400px;
+    width: 300px;
     max-width: 100%;
     height: auto;
     margin: auto;
@@ -29,12 +30,12 @@
 
 .textInfo {
     width: 50%;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     color: #FA240F;
     border-bottom-right-radius: 15px;
+    gap: 20px;
 }
 
 .textInfo h1 {
@@ -42,21 +43,51 @@
     font-size: 30px;
 }
 
-.textInfo h3 {
-    font-size: 18px;
-}
 
 .textDescryption {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
-    margin-top: 50px;
+    gap: 10px;
 }
 
 .singleInfo {
+    margin: auto;
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
+    font-size: 16px;
+}
+
+.singleInfo a {
+    text-decoration: none;
+    color: #FA240F;
+}
+.singleInfo a:hover {
+    color: blue;
+}
+
+@media (max-width: 1200px) {
+    .painelLanchonete {
+        margin: 10px;
+    }
+}
+
+@media (max-width: 700px) {
+    .painelLanchonete {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .imageArea {
+        width: 100%;
+    }
+    .textInfo {
+        width: 100%;
+    }
+    .painelLanchonete img {
+        width: 50%;
+        min-width: 300px;
+    }
+    
 }

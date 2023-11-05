@@ -1,6 +1,6 @@
 
 .mainLanchonete {
-    
+    max-width: 1200px;
 }
 
 .lanchoneteInfo {
@@ -55,10 +55,7 @@
     gap: 10px;
 }
 
-.icon {
-    width: 20px;
-    height: 20px;
-}
+
 
 .amostragem {
     width: 97%;
