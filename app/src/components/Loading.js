@@ -1,11 +1,12 @@
 import React from 'react';
-import { FaSpinner } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import styles from './Loading.module.css';
 
 const Loading = () => {
   return (
     <div className={styles.loadingContainer}>
-      <FaSpinner className={styles.loadingIcon} />
+      <faSpinner className={styles.loadingIcon} />
     </div>
   );
 };
