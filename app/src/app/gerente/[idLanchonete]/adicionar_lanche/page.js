@@ -9,6 +9,7 @@ import Navbar from "@/components/Navbar";
 import Container from "@/components/layout/Container";
 
 import styles from './AdicionarLanche.module.css'
+import Modal from "@/components/layout/SucessErrorModal";
 
 export default function AdicionarLanche({ params }) {
     const [formData, setFormData] = useState({
@@ -26,6 +27,13 @@ export default function AdicionarLanche({ params }) {
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [errors, setErrors] = useState({});
+    const [isModalOpen, setModalOpen] = useState(false);
+
+    const handleModalClose = () => {
+        setModalOpen(false);
+        setSuccessMessage('');
+        setErrorMessage('');
+      };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,10 +43,12 @@ export default function AdicionarLanche({ params }) {
             console.log('Resposta do servidor:', response.data);
             setSuccessMessage('Lanche adicionado com sucesso!');
             setErrorMessage('');
+            setModalOpen(true);
         } catch (error) {
             console.error('Erro ao enviar solicitação POST:', error);
             setErrorMessage('Erro ao adicionar o lanche. Por favor, tente novamente.');
             setSuccessMessage('');
+            setModalOpen(true);
         }
     };
 
@@ -55,8 +65,6 @@ export default function AdicionarLanche({ params }) {
         <div>
             <Navbar />
             <Container>
-                {successMessage && <p className="success-message">{successMessage}</p>}
-                {errorMessage && <p className="error-message">{errorMessage}</p>}
 
                 <form onSubmit={handleSubmit} className={styles.form}>
 
@@ -119,6 +127,17 @@ export default function AdicionarLanche({ params }) {
                     </div>
                     <button type="submit" className={styles.buttonSubmit}>Adicionar Lanche</button>
                 </form>
+
+                {successMessage && <Modal 
+                    isOpen={isModalOpen}
+                    message={successMessage}
+                    onClose={handleModalClose}
+                />}
+                {errorMessage && <Modal 
+                    isOpen={isModalOpen}
+                    message={errorMessage}
+                    onClose={handleModalClose}
+                />}
             </Container>
 
         </div>
