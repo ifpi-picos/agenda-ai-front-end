@@ -1,0 +1,20 @@
+.cloudinary {
+    margin: auto;
+}
+
+.upload {
+    border: 1px solid #FA240F;
+    background-color: transparent;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #FA240F;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.upload:hover {
+    color: #fdf1cf;
+    background-color: #FA240F;
+}

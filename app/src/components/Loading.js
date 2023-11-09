@@ -6,7 +6,7 @@ import styles from './Loading.module.css';
 const Loading = () => {
   return (
     <div className={styles.loadingContainer}>
-      <faSpinner className={styles.loadingIcon} />
+      <FontAwesomeIcon icon={faSpinner} className={styles.loadingIcon} />
     </div>
   );
 };

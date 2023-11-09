@@ -7,11 +7,11 @@ import styles from '../Gerente.module.css'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar, faFile, faHamburger, faList, faShoppingBag, faUtensilSpoon } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 import BuscaLanchonete from "@/services/BuscaLanchonete";
 
 export default async function GerenteLanchonetePage({ params }) {
-    console.log(params.id)
     //const id = params.idLanchonete
 
     const lanchonete = await BuscaLanchonete.buscarPorId(params.idLanchonete)
@@ -25,30 +25,39 @@ export default async function GerenteLanchonetePage({ params }) {
                     lanchonete={lanchonete}
                 />
                 <div className={styles.opcoes}>
-                    <div className={styles.cardOpcao}>
-                        <FontAwesomeIcon className={styles.icon} icon={faHamburger} />
-                        <div className={styles.opcaoTexto}>
-                            <h2>Lanches</h2>
+                    <Link href={`/gerente/${params.idLanchonete}/lanches`} passHref>
+                        <div className={styles.cardOpcao}>
+                            <FontAwesomeIcon className={styles.icon} icon={faHamburger} />
+                            <div className={styles.opcaoTexto}>
+                                <h2>Lanches</h2>
+                            </div>
                         </div>
-                    </div>
-                    <div className={styles.cardOpcao}>
-                        <FontAwesomeIcon className={styles.icon} icon={faCalendar} />
-                        <div className={styles.opcaoTexto}>
-                            <h2>Cardápio</h2>
+                    </Link>
+                    <Link href={`/gerente/${params.idLanchonete}/cardapio`} passHref>
+                        <div className={styles.cardOpcao}>
+                            <FontAwesomeIcon className={styles.icon} icon={faCalendar} />
+                            <div className={styles.opcaoTexto}>
+                                <h2>Cardápio</h2>
+                            </div>
                         </div>
-                    </div>
-                    <div className={styles.cardOpcao}>
-                        <FontAwesomeIcon className={styles.icon} icon={faList} />
-                        <div className={styles.opcaoTexto}>
-                            <h2>Agendamentos</h2>
+                    </Link>
+                    <Link href={`/gerente/${params.idLanchonete}/agendamentos`} passHref>
+                        <div className={styles.cardOpcao}>
+                            <FontAwesomeIcon className={styles.icon} icon={faList} />
+                            <div className={styles.opcaoTexto}>
+                                <h2>Agendamentos</h2>
+                            </div>
                         </div>
-                    </div>
-                    <div className={styles.cardOpcao}>
-                        <FontAwesomeIcon className={styles.icon} icon={faFile} />
-                        <div className={styles.opcaoTexto}>
-                            <h2>Histórico de Pedidos</h2>
+                    </Link>
+                    <Link href={`/gerente/${params.idLanchonete}/historico-pedidos`} passHref>
+                        <div className={styles.cardOpcao}>
+                            <FontAwesomeIcon className={styles.icon} icon={faFile} />
+                            <div className={styles.opcaoTexto}>
+                                <h2>Histórico de Pedidos</h2>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
+
                 </div>
 
             </Container>
