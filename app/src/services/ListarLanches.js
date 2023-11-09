@@ -4,10 +4,7 @@ class ListarLanches {
     async listarLanches(idLanchonete) {
         try {
             const res = await fetch(`http://localhost:3001/lanche/${idLanchonete}/listarLanches`, {
-                headers: {
-                    'Cache-Control': 'no-cache',
-                    'Pragma': 'no-cache',
-                },
+                cache: 'no-store'
             })
             const lanches = await res.json()
             console.log(lanches)
