@@ -57,7 +57,6 @@
     flex-direction: row;
     align-items: center;
     gap: 10px;
-    font-size: 16px;
 }
 
 .singleInfo a {
@@ -66,6 +65,36 @@
 }
 .singleInfo a:hover {
     color: blue;
+}
+
+.divIcon {
+    width: 20px;
+    height: 20px;
+}
+
+.divIcon .icon {
+    font-size: 20px;
+}
+
+.buttonEdit {
+    text-decoration: none;
+    color: #FA240F;
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px solid #FA240F;
+    width: 100px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #fff;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.buttonEdit:hover {
+    background-color: #FA240F;
+    color: #fff;
 }
 
 @media (max-width: 1200px) {

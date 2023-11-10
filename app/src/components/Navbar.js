@@ -12,7 +12,7 @@ export default function Navbar() {
     return (
         <nav className="navbar">
             <div className="container">
-                <Link className="logo" href='/'>
+                <Link className="logo" href='/' passHref>
                     <Image src={logo} alt="logo_agendaai"/>
                 </Link>
             </div>

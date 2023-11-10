@@ -23,6 +23,8 @@ export default async function GerenteLanchonetePage({ params }) {
             <Container>
                 <PainelLanchonete
                     lanchonete={lanchonete}
+                    edit={true}
+                    editUrl={`/gerente/${params.idLanchonete}/editar`}
                 />
                 <div className={styles.opcoes}>
                     <Link href={`/gerente/${params.idLanchonete}/lanches`} passHref>
