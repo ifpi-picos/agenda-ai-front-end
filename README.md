@@ -17,29 +17,30 @@ Clone do repositório:
 git clone https://github.com/ifpi-picos/time-bag-front-end
 ```
 
+Navegue até a pasta app
+
+```
+cd app
+```
+
 Instale as dependências:
 
 ```
 npm install
 ```
 
-Navegue até a pasta agenda-ai:
-
-```
-cd agenda-ai
-```
 
 Execução do projeto:
 
 ```
-npm start
+npm run dev
 ```
 
 
 ## 🛠️ Tecnologias utilizadas
 
 
-* [React](https://react.dev/learn) - Framework front-end
+* [Next.js](https://nextjs.org/) - Framework front-end React
 * [Javascript](https://devdocs.io/javascript/) - Linguagem de programação
 
 ## ✒️ Autores
