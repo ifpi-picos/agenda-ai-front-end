@@ -1,8 +1,5 @@
 'use client'
 import CloudinaryUpload from "@/components/Cadastro/CloudinaryUpload";
-
-// pages/adicionarLanche.js
-
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Navbar from "@/components/Navbar";
@@ -10,6 +7,9 @@ import Container from "@/components/layout/Container";
 
 import styles from './AdicionarLanche.module.css'
 import Modal from "@/components/layout/SucessErrorModal";
+import { useRouter } from "next/navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function AdicionarLanche({ params }) {
     const [formData, setFormData] = useState({
@@ -20,6 +20,8 @@ export default function AdicionarLanche({ params }) {
         urlImagem: '',
         idLanchonete: params.idLanchonete,
     });
+
+    const router = useRouter()
 
 
     console.log(params.idLanchonete)
@@ -33,7 +35,7 @@ export default function AdicionarLanche({ params }) {
         setModalOpen(false);
         setSuccessMessage('');
         setErrorMessage('');
-      };
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -75,6 +77,8 @@ export default function AdicionarLanche({ params }) {
                         <CloudinaryUpload
                             onURLChange={handleImageURLChange}
                             defaultImage={formData.urlImagem}
+                            height={250}
+                            width={250}
                         />
                         {errors.imagem && (
                             <div className="error">{errors.imagem.message}</div>
@@ -128,16 +132,20 @@ export default function AdicionarLanche({ params }) {
                     <button type="submit" className={styles.buttonSubmit}>Adicionar Lanche</button>
                 </form>
 
-                {successMessage && <Modal 
+                {successMessage && <Modal
                     isOpen={isModalOpen}
                     message={successMessage}
                     onClose={handleModalClose}
                 />}
-                {errorMessage && <Modal 
+                {errorMessage && <Modal
                     isOpen={isModalOpen}
                     message={errorMessage}
                     onClose={handleModalClose}
                 />}
+                <button className={styles.botaoVoltar} onClick={() => router.back()}>
+                    <FontAwesomeIcon icon={faArrowLeft}/>
+                    Voltar
+                </button>
             </Container>
 
         </div>
