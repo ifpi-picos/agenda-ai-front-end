@@ -1,0 +1,97 @@
+
+.boxLanche {
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+    padding: 50px;
+    justify-content: space-between;
+    background: #fdf1cf;
+    box-shadow: 5px 5px 0px #656053, -5px -5px 0px #ffffff;
+    border-radius: 50px;
+}
+
+.boxLanche img {
+    width: 500px;
+    height: 500px;
+    border-radius: 10%;
+}
+
+.formLanche {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-evenly;
+    width: 500px;
+}
+
+.formLanche h1 {
+    font-family: "Pacifico", cursive;
+    color: #FA240F;
+    font-size: 30px;
+    cursor: default;
+}
+
+.formLanche input {
+    border: none;
+    color: #FA240F;
+    font-size: 25px;
+    border-bottom: 2px solid #FA240F;
+    background: transparent;
+    margin-top: 40px;
+    padding: 8px 0px 8px 10px;
+    outline: none;
+    width: 100%;
+}
+
+.formLanche input::placeholder {
+    color: #FA240F;
+    font-size: 25px;
+}
+
+.formLanche select {
+    border: 2px solid #FA240F;
+    border-radius: 15px;
+    color: #FA240F;
+    font-size: 25px;
+    background: transparent;
+    margin-top: 40px;
+    padding: 8px 0px 8px 10px;
+    outline: none;
+    width: 100%;
+    cursor: pointer;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.cancelar {
+    background: #FA680F;
+}
+
+.formLanche button {
+    background: #FA240F;
+    color: #FFF7E1;
+    border-radius: 30px;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px 10px 10px 15px;
+    font-size: 15px;
+    margin: 30px 0;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.formLanche button a {
+    text-decoration: none;
+    color: #FFF7E1;
+}
+
+.formLanche button:hover {
+    transform: scale(1.1);
+}
