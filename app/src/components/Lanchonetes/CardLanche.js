@@ -3,7 +3,6 @@ import styles from './CardLanche.module.css'
 import Image from 'next/image'
 
 export default function CardLanche({idLanche, nomeLanche, preco, urlImagem, urlHref}) {
-    console.log(urlImagem)
     
     return (
         <div className={styles.cardLanche}>

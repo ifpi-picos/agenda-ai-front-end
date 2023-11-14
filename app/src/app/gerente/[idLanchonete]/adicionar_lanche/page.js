@@ -23,9 +23,6 @@ export default function AdicionarLanche({ params }) {
 
     const router = useRouter()
 
-
-    console.log(params.idLanchonete)
-
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [errors, setErrors] = useState({});
@@ -33,8 +30,12 @@ export default function AdicionarLanche({ params }) {
 
     const handleModalClose = () => {
         setModalOpen(false);
-        setSuccessMessage('');
-        setErrorMessage('');
+        if (successMessage) {
+            window.location.href = `/gerente/${params.idLanchonete}/lanches`
+        } else {
+            setSuccessMessage('');
+            setErrorMessage('');
+        }
     };
 
     const handleSubmit = async (e) => {
@@ -143,7 +144,7 @@ export default function AdicionarLanche({ params }) {
                     onClose={handleModalClose}
                 />}
                 <button className={styles.botaoVoltar} onClick={() => router.back()}>
-                    <FontAwesomeIcon icon={faArrowLeft}/>
+                    <FontAwesomeIcon icon={faArrowLeft} />
                     Voltar
                 </button>
             </Container>

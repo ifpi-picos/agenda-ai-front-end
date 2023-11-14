@@ -6,7 +6,7 @@ import styles from '@/app/lanche/lanche.module.css'
 import Container from '@/components/layout/Container'
 import CloudinaryUpload from '@/components/Cadastro/CloudinaryUpload'
 import { useState, useEffect } from 'react'
-import BuscaLanche from '@/services/BuscaLanche'
+import BuscaLanche from '@/services/Lanche'
 import AlterarLanche from '@/components/Lanchonetes/AlterarLanche'
 import VerLanche from '@/components/Lanchonetes/VerLanche'
 

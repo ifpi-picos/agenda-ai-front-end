@@ -7,7 +7,6 @@ class ListarLanches {
                 cache: 'no-store'
             })
             const lanches = await res.json()
-            console.log(lanches)
             return lanches
         } catch (error) {
             console.error(error)

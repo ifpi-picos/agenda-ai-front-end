@@ -1,6 +1,6 @@
+import Lanche from '@/services/Lanche';
 import styles from '@/app/lanche/lanche.module.css'
 import Image from 'next/image'
-import { useState } from 'react';
 
 function VerLanche({ lanche, editMode, setEditMode }) {
     
@@ -8,6 +8,13 @@ function VerLanche({ lanche, editMode, setEditMode }) {
         console.log('setEditMode(true);')
         setEditMode(true);
     };
+    const handleRemoveClick = async () => {
+        await Lanche.deletarPorId(lanche.idLanche)
+        redirecionar()
+    }
+    const redirecionar = () => {
+        window.location.href = (`/gerente/${lanche.idLanchonete}/lanches`)
+    }
     return (
         <div className={styles.boxLanche}>
             <div className={styles.imageArea}>
@@ -19,6 +26,7 @@ function VerLanche({ lanche, editMode, setEditMode }) {
                 <div className={styles.item}>{lanche.tipo}</div>
                 <div className={styles.item}>R$ {lanche.preco.toFixed(2)}</div>
                 <div className={styles.botoes}>
+                    <button onClick={handleRemoveClick}>Remover</button>
                     <button onClick={handleEditClick}>Editar</button>
                 </div>
             </div>

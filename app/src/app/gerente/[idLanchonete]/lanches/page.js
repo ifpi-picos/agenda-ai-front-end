@@ -7,12 +7,10 @@ import styles from './lanches.module.css'
 import ListarLanches from '@/services/ListarLanches'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import BarraDePesquisa from "@/components/layout/BarraDePesquisa";
 export default async function Lanches({ params }) {
-    console.log(params.idLanchonete)
     const lanches = await ListarLanches.listarLanches(params.idLanchonete)
 
     return (

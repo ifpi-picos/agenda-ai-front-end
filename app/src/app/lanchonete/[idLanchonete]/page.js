@@ -8,9 +8,7 @@ import Container from '@/components/layout/Container'
 import BuscaLanchonete from '@/services/BuscaLanchonete'
 
 export default async function TelaCantina({params}) {
-    console.log(params.idLanchonete)
     const lanchonete = await BuscaLanchonete.buscarPorId(params.idLanchonete)
-    console.log(lanchonete.nomeLanchonete)
 
     return (
         <>
