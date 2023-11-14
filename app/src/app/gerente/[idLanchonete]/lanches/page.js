@@ -29,13 +29,13 @@ export default async function Lanches({ params }) {
                 <div className={styles.lanches}>
                     {lanches.length > 0 &&
                         lanches.map((lanche) => (
-                            <CardLanche
-                                key={lanche.idLanche}
-                                idLanche={lanche.idLanche}
-                                nomeLanche={lanche.nomeLanche}
-                                preco={lanche.preco}
-                                urlImagem={lanche.urlImagem}
-                            />
+                                    <CardLanche
+                                        idLanche={lanche.idLanche}
+                                        nomeLanche={lanche.nomeLanche}
+                                        preco={lanche.preco}
+                                        urlImagem={lanche.urlImagem}
+                                        urlHref={`/lanche/${lanche.idLanche}`}
+                                    />
                         ))
                     }
                 </div>

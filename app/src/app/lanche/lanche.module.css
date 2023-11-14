@@ -2,96 +2,108 @@
 .boxLanche {
     display: flex;
     flex-direction: row;
-    margin-top: 100px;
-    padding: 50px;
+    padding: 20px;
     justify-content: space-between;
     background: #fdf1cf;
-    box-shadow: 5px 5px 0px #656053, -5px -5px 0px #ffffff;
-    border-radius: 50px;
+    box-shadow: 5px 5px 0px #656053;
+    border-radius: 20px;
+    margin: 10px 0;
+}
+
+.boxLanche .imageArea {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .boxLanche img {
-    width: 500px;
-    height: 500px;
     border-radius: 10%;
 }
 
-.formLanche {
+.formLanche, .infoLanche {
+    width: 50%;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: left;
     justify-content: space-evenly;
-    width: 500px;
+    gap: 30px;
+    text-align: center;
+    
 }
 
-.formLanche h1 {
+.formLanche h1, .infoLanche h1{
     font-family: "Pacifico", cursive;
     color: #FA240F;
     font-size: 30px;
     cursor: default;
+    margin: auto;
 }
 
-.formLanche input {
+.formLanche input, .item {
     border: none;
     color: #FA240F;
-    font-size: 25px;
+    font-size: 18px;
     border-bottom: 2px solid #FA240F;
-    background: transparent;
-    margin-top: 40px;
     padding: 8px 0px 8px 10px;
     outline: none;
     width: 100%;
+    text-align: center;
+}
+
+.formLanche input {
+    background: #fdf6e3;
 }
 
 .formLanche input::placeholder {
     color: #FA240F;
-    font-size: 25px;
+    font-size: 18px;
 }
 
 .formLanche select {
     border: 2px solid #FA240F;
     border-radius: 15px;
     color: #FA240F;
-    font-size: 25px;
+    font-size: 18px;
     background: transparent;
-    margin-top: 40px;
     padding: 8px 0px 8px 10px;
     outline: none;
     width: 100%;
     cursor: pointer;
+    text-align: center;
 }
 
 .botoes {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     gap: 10px;
 }
 
-.cancelar {
-    background: #FA680F;
-}
-
-.formLanche button {
-    background: #FA240F;
-    color: #FFF7E1;
+.botoes button {
+    background: #fff;
+    color: #FA240F;
     border-radius: 30px;
     width: 100%;
-    border: none;
+    border: 2px solid #FA240F;
     outline: none;
-    padding: 10px 10px 10px 15px;
+    padding: 10px;
     font-size: 15px;
-    margin: 30px 0;
     cursor: pointer;
     transition: 0.2s;
+    width: 50%;
+    font-size: 18px;
 }
 
-.formLanche button a {
+.botoes button a {
     text-decoration: none;
     color: #FFF7E1;
 }
 
-.formLanche button:hover {
-    transform: scale(1.1);
+.botoes button:hover {
+    background: #FA240F;
+    color: #fff;
 }
