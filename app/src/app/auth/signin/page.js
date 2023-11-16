@@ -23,7 +23,7 @@ export default function Signin() {
     const onSubmit = (data) => {
         setLoading(true);
 
-        axios.post("http://localhost:3001/auth/signin", {
+        axios.post("https://agendaai-api.onrender.com/auth/signin", {
             email: data.email,
             password: data.password
         }).then((response) => {

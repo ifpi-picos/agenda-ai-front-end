@@ -26,7 +26,7 @@ export default function signup() {
         resolver: yupResolver(schema)
     })
 
-    const onSubmit = (data) => axios.post("http://localhost:3001/auth/signup", {
+    const onSubmit = (data) => axios.post("https://agendaai-api.onrender.com/auth/signup", {
         nomeUsuario: data.nomeUsuario,
         email: data.email,
         password: data.password,

@@ -28,7 +28,7 @@ export default function FormCadastroCantina() {
         resolver: yupResolver(schema)
     })
 
-    const onSubmit = (data) => axios.post("http://localhost:3001/lanchonetes/criar", {
+    const onSubmit = (data) => axios.post("https://agendaai-api.onrender.com/lanchonetes/criar", {
         nomeUsuario: data.nomeUsuario,
         email: data.email,
         password: data.password,

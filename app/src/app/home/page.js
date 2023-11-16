@@ -13,7 +13,7 @@ export default function Home() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch('http://localhost:3001/lanchonetes/listar', {
+        fetch(`https://agendaai-api.onrender.com/lanchonetes/listar`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
