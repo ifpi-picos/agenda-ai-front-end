@@ -42,7 +42,7 @@ export default function AdicionarLanche({ params }) {
         e.preventDefault();
         console.log(formData)
         try {
-            const response = await axios.post('http://localhost:3001/lanche/adicionarLanche', formData);
+            const response = await axios.post('https://agendaai-api.onrender.com/lanche/adicionarLanche', formData);
             console.log('Resposta do servidor:', response.data);
             setSuccessMessage('Lanche adicionado com sucesso!');
             setErrorMessage('');

@@ -17,7 +17,7 @@ function AlterarLanche({ lanche, editMode, setEditMode }) {
 
     const handleSaveClick = async () => {
         try {
-            const response = await fetch(`http://localhost:3001/lanche/alterar/${lanche.idLanche}`, {
+            const response = await fetch(`https://agendaai-api.onrender.com/lanche/alterar/${lanche.idLanche}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

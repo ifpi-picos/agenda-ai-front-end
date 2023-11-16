@@ -3,7 +3,7 @@
 class ListarLanches {
     async listarLanches(idLanchonete) {
         try {
-            const res = await fetch(`http://localhost:3001/lanche/${idLanchonete}/listarLanches`, {
+            const res = await fetch(`https://agendaai-api.onrender.com/lanche/${idLanchonete}/listarLanches`, {
                 cache: 'no-store'
             })
             const lanches = await res.json()

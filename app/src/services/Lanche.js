@@ -1,7 +1,7 @@
 class Lanche {
     async buscaPorId(idLanche) {
         try {
-            const res = await fetch(`http://localhost:3001/lanche/buscar/${idLanche}`, {
+            const res = await fetch(`https://agendaai-api.onrender.com/lanche/buscar/${idLanche}`, {
                 cache: 'no-store'
             })
             const info = await res.json()
@@ -13,7 +13,7 @@ class Lanche {
     }
     async deletarPorId(idLanche) {
         try {
-            const res = await fetch(`http://localhost:3001/lanche/deletar/${idLanche}`, {
+            const res = await fetch(`https://agendaai-api.onrender.com/lanche/deletar/${idLanche}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
