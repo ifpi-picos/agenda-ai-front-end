@@ -18,14 +18,15 @@
     font-family: 'Pacifico', cursive;
     font-size: 60px;
     color: #FA240F;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .apresentacao h2 {
-    font-family: 'Roboto', cursive;
+    font-family: 'Roboto', italic;
     text-align: center;
-    font-size: 20px;
-    color: #FA240F;
+    font-style: bold;
+    font-size: 25px;
+    color: #FA680F;
     padding: 0 50px 0 50px;
 }
 
@@ -37,33 +38,68 @@
 .apresentacao .botoes{
     margin: 30px;
     font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
+
 .btn {
-    background-color: #FAF0EC;
-    border: 2px solid #FA240F;
-    border-radius: 1em;
-    color: #FA240F;
-    padding: 0.5em 1em;
-    text-decoration: none;
-    transition: 0.5s;
+    background: #FA680F;
+    color: #FFF7E1;
+    border-radius: 30px;
     font-weight: bold;
-    margin-left: 10px;
-    margin-right: 10px;
+    width: 150px;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    padding: 10px 10px 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
 .btn:hover {
-    background-color: #FA240F;
-    color: #FAF0EC;
+    background: #FA240F;
+}
+
+.btnn {
+    background: #FA680F;
+    color: #FFF7E1;
+    border-radius: 30px;
+    font-weight: bold;
+    width: 250px;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    padding: 10px 10px 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btnn:hover {
+    background: #FA240F;
+}
+
+.vantagens {
+    display: flex;
+    width: 490px;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
 }
 
 .vantagens h3 {
-    font-size: 1.5rem;
+    font-size: 25px;
+    font-weight: bold;
+    left: 10px;
 }
 
 .vantagens ul {
     list-style-type: disc;
     padding-left: 20px;
     margin-top: 10px;
+    font-size: 20px;
     text-align: left;
     color: #FA240F
 }
@@ -74,11 +110,13 @@
 }
 
 .passosSimples h3 {
-    font-size: 1.5rem;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .passosSimples ol {
     list-style-type: decimal;
+    font-size: 20px;
     padding-left: 20px;
     margin-top: 10px;
     color: #FA240F;

@@ -9,12 +9,12 @@
 .cardCadastro{
     display: flex;
     flex-direction: column;
+    background: #fdf1cf;
     align-items: center;
     width: 360px;
     padding: 20px;
     margin: 20px;
     border-radius: 10px;
-    border: 1px solid #FA240F;
     box-shadow: 5px 5px 0px #656053;
 }
 
@@ -30,12 +30,17 @@
 
 .formCadastro input {
     border: none;
-    border-bottom: 2px solid #FA680F;
-    background: transparent;
+    box-shadow: 3px 3px 0px #FA680F;
+    background: #fdf6e3;
+    border-radius: 10px;
     margin-top: 40px;
     padding: 8px 0px 8px 10px;
     outline: none;
     width: 100%;
+}
+
+.formCadastro input::placeholder {
+    color: #FA680F;
 }
 
 .divSelect {
@@ -66,7 +71,7 @@
 }
 
 .submitButton {
-    background: #FA240F;
+    background: #FA680F;
     color: #FFF7E1;
     border-radius: 30px;
     width: 100%;
@@ -76,9 +81,14 @@
     font-size: 15px;
     margin: 30px 0;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 .submitButton a {
     text-decoration: none;
     color: #FFF7E1;
 }
+
+.submitButton:hover {
+    background: #FA240F;
+}   

@@ -1,4 +1,32 @@
 
+.boxImage {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 20px;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    background: #fdf1cf;
+    box-shadow: 5px 5px 0px #656053;
+    border-radius: 20px;
+    margin: 20px  0;
+    color: #FA680F;
+}
+
+.boxImage img {
+    border-radius: 20px;
+    box-shadow: 5px 5px 0px #656053;
+}
+
+.formImage {
+    background: #fdf6e3;
+    border: none;
+    box-shadow: 3px 3px 0px #FA680F;
+    border-radius: 10px;
+    padding: 0px 5px 0px 10px;
+}
+
 .boxEdit {
     display: flex;
     flex-direction: row;
@@ -8,7 +36,7 @@
     background: #fdf1cf;
     box-shadow: 5px 5px 0px #656053;
     border-radius: 20px;
-    margin: 20px  0;
+    margin: 0px  0;
 }
 
 .infoCantina {
@@ -75,6 +103,15 @@
     border: none;
     
 }
+
+.botoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
 
 .formEndereco button {
     background: #FA680F;

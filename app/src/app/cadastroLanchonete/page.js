@@ -6,6 +6,7 @@ import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
+import Container from "@/components/layout/Container";
 
 const schema = yup.object().shape({
     nomeUsuario: yup.string().required('O nome deve ser preenchido'),
@@ -47,112 +48,121 @@ export default function FormCadastroCantina() {
     return (
         <>
             <Navbar />
-            <form onSubmit={handleSubmit(onSubmit)} className={styles.formulario_cantina}>
-                <h1>Formulário para cadastro de sua Cantina</h1>
-                <label htmlFor="nomeUsuario">Nome do Gerente:</label>
-                <input 
-                    type="text"
-                    id="nomeUsuario"
-                    name="nomeUsuario"
-                    placeholder="Digite o nome do gerente"
-                    {...register("nomeUsuario")}
-                />
-                <label htmlFor="email">Email:</label>
-                <input 
-                    type="text"
-                    id="email"
-                    name="email"
-                    placeholder="Digite o nome do gerente"
-                    {...register("email")}
-                />
-                <label htmlFor="password">Senha:</label>
-                <input 
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Digite o nome do gerente"
-                    {...register("password")}
-                />
-                <label htmlFor="nomeLanchonete">Nome da Cantina:</label>
-                <input 
-                    type="text"
-                    id="nomeLanchonete"
-                    name="nomeLanchonete"
-                    placeholder="Digite o nome da cantina"
-                    {...register("nomeLanchonete")}
-                />
-                <label htmlFor="cnpj">CNPJ:</label>
-                <input 
-                    type="text"
-                    id="cnpj"
-                    name="cnpj"
-                    placeholder="Digite o CNPJ da cantina"
-                    {...register("cnpj")}
-                />
-                <label for="imagem">Anexe uma imagem da cantina</label>
-                <input 
-                    type="file"
-                    id="imagem"
-                    name="imagem"
-                />
-                
-                <h3>Endereço</h3>
-                <label for="cep">Informe seu CEP:</label>
-                <input
-                    type="text"
-                    id="cep"
-                    name="cep" 
-                    placeholder="Digite o CEP"
-                    pattern="[0-9]{5}-[0-9]{3}"
-                    required
-                    {...register("cep")}
-                />
+            <Container>
+                <div className={styles.boxEdit}>
+                    <div className={styles.cantinaInfo}>
+                        <form className={styles.formInfo}>
+                            <h1>Cadastro de cantina</h1>
+                            <label htmlFor="nomeUsuario">Nome do Gerente:</label>
+                            <input 
+                                type="text"
+                                id="nomeUsuario"
+                                name="nomeUsuario"
+                                placeholder="Digite o nome do gerente"
+                                {...register("nomeUsuario")}
+                            />
+                            <label htmlFor="email">Email:</label>
+                            <input 
+                                type="text"
+                                id="email"
+                                name="email"
+                                placeholder="Digite o nome do gerente"
+                                {...register("email")}
+                            />
+                            <label htmlFor="password">Senha:</label>
+                            <input 
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Digite o nome do gerente"
+                                {...register("password")}
+                            />
+                            <label htmlFor="nomeLanchonete">Nome da Cantina:</label>
+                            <input 
+                                type="text"
+                                id="nomeLanchonete"
+                                name="nomeLanchonete"
+                                placeholder="Digite o nome da cantina"
+                                {...register("nomeLanchonete")}
+                            />
+                            <label htmlFor="cnpj">CNPJ:</label>
+                            <input 
+                                type="text"
+                                id="cnpj"
+                                name="cnpj"
+                                placeholder="Digite o CNPJ da cantina"
+                                {...register("cnpj")}
+                            />
+                            <label for="imagem">Anexe uma imagem da cantina:</label>
+                            <input 
+                                type="file"
+                                id="imagem"
+                                name="imagem"
+                            />
+                        </form>
+                    </div>
+                    <div className={styles.cantinaEndereco}>
+                        <form className={styles.formEndereco}>
+                            <h1>Endereço</h1>
+                            <label for="cep">Informe seu CEP:</label>
+                            <input
+                                type="text"
+                                id="cep"
+                                name="cep" 
+                                placeholder="Digite o CEP"
+                                pattern="[0-9]{5}-[0-9]{3}"
+                                required
+                                {...register("cep")}
+                            />
 
-                <label for="rua">Logradouro:</label>
-                <input
-                    type="text"
-                    id="logradouro" 
-                    name="logradouro" 
-                    placeholder="Digite o logradouro"
-                    {...register("logradouro")}/>
-                <label for="numero">Número:</label>
-                <input 
-                    type="text" 
-                    id="numero" 
-                    name="numero" 
-                    placeholder="Digite o numero"
-                    {...register("numero")}
-                />
+                            <label for="rua">Logradouro:</label>
+                            <input
+                                type="text"
+                                id="logradouro" 
+                                name="logradouro" 
+                                placeholder="Digite o logradouro"
+                                {...register("logradouro")}/>
+                            <label for="numero">Número:</label>
+                            <input 
+                                type="text" 
+                                id="numero" 
+                                name="numero" 
+                                placeholder="Digite o numero"
+                                {...register("numero")}
+                            />
 
-                <label for="bairro">Bairro:</label>
-                <input 
-                    type="text" 
-                    id="bairro" 
-                    name="bairro" 
-                    placeholder="Digite o nome do bairro"
-                    {...register("bairro")}
-                />
+                            <label for="bairro">Bairro:</label>
+                            <input 
+                                type="text" 
+                                id="bairro" 
+                                name="bairro" 
+                                placeholder="Digite o nome do bairro"
+                                {...register("bairro")}
+                            />
 
-                <label for="cidade">Cidade:</label>
-                <input
-                    type="text"
-                    id="cidade"
-                    name="cidade"
-                    placeholder="Digite o nome da cidade"
-                    {...register("cidade")}
-                />
+                            <label for="cidade">Cidade:</label>
+                            <input
+                                type="text"
+                                id="cidade"
+                                name="cidade"
+                                placeholder="Digite o nome da cidade"
+                                {...register("cidade")}
+                            />
 
-                <label for="estado">Estado:</label>
-                <input
-                    type="text"
-                    name="estado"
-                    id="estado"
-                    placeholder="Digite o nome do estado"
-                    {...register("estado")}
-                />
+                            <label for="estado">Estado:</label>
+                            <input
+                                type="text"
+                                name="estado"
+                                id="estado"
+                                placeholder="Digite o nome do estado"
+                                {...register("estado")}
+                            />
 
-                <button className={styles.botao_formulario} type="submit">Enviar</button>  
-            </form>
+                            <button className={styles.botao_formulario} type="submit">Enviar</button>  
+                        </form>
+                    </div>
+                </div>
+            </Container>
         </>
     )
 }

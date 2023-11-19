@@ -46,7 +46,7 @@ export default function Apresentacao() {
                     </ol>
                 </div>
                 <div className="botoes">
-                    <Link className='btn' href="/cadastroLanchonete">
+                    <Link className='btnn' href="/cadastroLanchonete">
                         Cadastrar Cantina
                     </Link>
                 </div>
