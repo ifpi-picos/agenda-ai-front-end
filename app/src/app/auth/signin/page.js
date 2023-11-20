@@ -27,7 +27,7 @@ export default function Signin() {
             email: data.email,
             password: data.password
         }).then((response) => {
-            localStorage.setItem('token', response.data.token);
+            localStorage.setItem("token", response.data.token);
             
             if (response.data.tipo === 'cliente') {
                 return router.push('/home')

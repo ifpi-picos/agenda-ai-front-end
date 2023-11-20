@@ -1,65 +1,60 @@
-import Image from 'next/image'
-import '@/styles/Apresentacao.css'
-import Logo from '/public/logo-agendaai.png'
-import ImgDesktop from '/public/ImgDesktop.png'
-import Mobile1 from '/public/Mobile1.png'
-import Mobile2 from '/public/Mobile2.png'
-import Mobile3 from '/public/Mobile3.png'
-import Link from 'next/link'
-import Navbar from '@/components/Navbar'
-import logo from '/public/logo-agendaai.png'
-// https://github.com/ifpi-picos/agenda-ai-front-end
+"use client"
+import { useEffect, useState } from 'react';
+import jwt from 'jsonwebtoken';
+import { useRouter } from 'next/navigation';
+import { jwtDecode } from 'jwt-decode';
+import { isTokenValid } from '@/services/token/verificarToken';
+import Loading from '@/components/Loading';
 
-export default function Apresentacao() {
+export default function MinhaPaginaInicial() {
+    const [tipo, setTipo] = useState('');
+    const [erro, setErro] = useState(null);
+    const [token, setToken] = useState('');
+    const router = useRouter();
+
+    useEffect(() => {
+        const storedToken = localStorage.getItem('token');
+
+        if (storedToken) {
+            const tokenStatus = isTokenValid(storedToken)
+            if (tokenStatus.isValid) {
+                setToken(storedToken);
+
+                try {
+                    const decoded = jwtDecode(storedToken)
+                    console.log(decoded);
+                    setTipo(decoded.tipo)
+                    if (decoded.tipo === 'cliente') {
+                        router.push('/home');
+                    } else if (decoded.tipo === 'gerente') {
+                        router.push('/gerente');
+                    }
+                } catch (error) {
+                    console.error(error);
+
+                    if (error.name === 'TokenExpiredError') {
+                        setErro(error.name);
+                    } else if (error.name === 'JsonWebTokenError') {
+                        setErro(error.name);
+                    } else {
+                        setErro(error.name);
+                    }
+                }
+            } else if(tokenStatus.status === "expirado") {
+                setErro("token expirado")
+                router.push('/auth/signin')
+            } else if(tokenStatus.status === "invalido") {
+                setErro("acesso invalido")
+                router.push('/auth/signin')
+            }
+        } else {
+            router.push('/inicio')
+        }
+    }, [router]);
+
     return (
-    <>
-    <Navbar />
-        <section className="layoutApresentacao">
-            <section className="apresentacao">
-                <div className="titulo">
-                    <h1>Agenda aí</h1>
-                    <h2>Não espere pelo lanche, faça ele esperar por você!</h2>
-                </div>
-                <div className="botoes">
-                    <Link className='btn' href="/auth/signup">
-                        Cadastro
-                    </Link>
-                    <Link className='btn' href="/auth/signin">
-                        Login
-                    </Link>
-                </div>
-                <div className="vantagens">
-                    <h3>Vantagens de usar o nosso software:</h3>
-                    <ul>
-                        <li>Praticidade ao agendar a compra do seu lanche</li>
-                        <li>Menor tempo gasto ao resgatar o lanche na cantina</li>
-                        <li>Garantia de adquirir seu lanche preferencial</li>
-                        <li>Facilidade na compra do lanche de seus filhos na(s) escola(s)</li>
-                    </ul>
-                </div>
-                <div className="passosSimples">
-                    <h3>Passos simples para agendar seu lanche:</h3>
-                    <ol>
-                        <li>Selecione a cantina em nossa plataforma.</li>
-                        <li>Escolha o lanche desejado e o horário de retirada.</li>
-                        <li>Retire seu lanche na cantina no horário agendado.</li>
-                    </ol>
-                </div>
-                <div className="botoes">
-                    <Link className='btnn' href="/cadastroLanchonete">
-                        Cadastrar Cantina
-                    </Link>
-                </div>
-            </section>
-            <section className="amostragem">
-                <Image className="imgDesktop" src={ImgDesktop} alt="imagem desktop"/>
-                <div className="telas-mobile">
-                    <Image className="mobile" src={Mobile1} alt="imagem mobile1"/>
-                    <Image className="mobile" src={Mobile2} alt="imagem mobile2"/>
-                    <Image className="mobile" src={Mobile3} alt="imagem mobile3"/>
-                </div>
-            </section>
-        </section>
-    </>
-    )
-}
+        <div>
+            <Loading />
+        </div>
+    );
+};

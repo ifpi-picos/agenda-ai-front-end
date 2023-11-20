@@ -27,6 +27,7 @@ export default function AdicionarLanche({ params }) {
     const [errorMessage, setErrorMessage] = useState('');
     const [errors, setErrors] = useState({});
     const [isModalOpen, setModalOpen] = useState(false);
+    const [token, setToken] = useState('')
 
     const handleModalClose = () => {
         setModalOpen(false);
@@ -38,11 +39,25 @@ export default function AdicionarLanche({ params }) {
         }
     };
 
+    useEffect(() => {
+        const storedToken = localStorage.getItem("token")
+        if(storedToken) {
+            setToken(storedToken)
+        }
+    }, [])
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(formData)
         try {
-            const response = await axios.post('https://agendaai-api.onrender.com/lanche/adicionarLanche', formData);
+            const response = await axios.post('https://agendaai-api.onrender.com/lanche/adicionarLanche',
+            formData,
+            {
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `${token}`
+                }
+            });
             console.log('Resposta do servidor:', response.data);
             setSuccessMessage('Lanche adicionado com sucesso!');
             setErrorMessage('');
