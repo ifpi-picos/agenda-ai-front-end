@@ -11,82 +11,105 @@ import { useRouter } from "next/navigation"
 import { useForm } from 'react-hook-form';
 
 import styles from '@/app/auth/signup/signup.module.css'
+import { useState } from "react";
+import { apiUrl } from "@/config/config";
+import Modal from "@/components/layout/SucessErrorModal";
 
 
 const schema = yup.object().shape({
     nomeUsuario: yup.string().required('O nome deve vser preenchido'),
     email: yup.string().required('O email deve ser preenchido'),
-    password: yup.string().required('A senha deve ser preenchida')
+    password: yup.string().required('A senha deve ser preenchida'),
+    confirmPassword: yup.string().required('A confirmação de senha deve ser preenchida')
 })
 
 export default function signup() {
     const router = useRouter()
 
-    const { register, handleSubmit, formState: {errors}} = useForm({
+    const [errorMessage, setErrorMessage] = useState(null)
+    const [successMessage, setSuccessMessage] = useState(null);
+
+    const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     })
-
-    const onSubmit = (data) => axios.post("https://agendaai-api.onrender.com/auth/signup", {
+    //"https://agendaai-api.onrender.com/auth/signup"
+    const onSubmit = (data) => axios.post(`${apiUrl}/auth/signup`, {
         nomeUsuario: data.nomeUsuario,
         email: data.email,
         password: data.password,
+        confirmPassword: data.confirmPassword,
         tipo: 'cliente'
     }).then((response) => {
         router.push('/auth/signin')
+    }).catch((error) => {
+        if (error.response) {
+            const responseData = error.response.data;
+            if (responseData.error) {
+                setErrorMessage(responseData.error)
+            }
+        }
     })
 
     return (
         <>
             <Navbar />
             <section className={styles.cadastro}>
-            <div className={styles.cardCadastro}>
-                <h1>Cadastro</h1>
-                <form onSubmit={handleSubmit(onSubmit)} className={styles.formCadastro}>
-                    <input
-                        type='text'
-                        id='nomeUsuario'
-                        name='nomeUsuario'
-                        placeholder='Digite seu nome'
-                        required
-                        {...register("nomeUsuario")}
-                    />
-                    <input
-                        type='text'
-                        id='email'
-                        name='email'
-                        placeholder='Digite seu email'
-                        required
-                        {...register("email")}
-                    />
-
-                    <div className={styles.inputSenha}>
+                <div className={styles.cardCadastro}>
+                    <h1>Cadastro</h1>
+                    <form onSubmit={handleSubmit(onSubmit)} className={styles.formCadastro}>
                         <input
-                            type='password'
-                            id='password'
-                            name='password'
-                            placeholder='Digite sua senha'
+                            type='text'
+                            id='nomeUsuario'
+                            name='nomeUsuario'
+                            placeholder='Digite seu nome'
                             required
-                            {...register("password")}
+                            {...register("nomeUsuario")}
                         />
-                        <FontAwesomeIcon className={styles.icon} icon={faEye}/>
-                    </div>
-
-                    <div className={styles.inputSenha}>
                         <input
-                            type='password'
-                            id='confirmarSenha'
-                            name='confirmarSenha'
-                            placeholder='Confirme sua senha'
+                            type='text'
+                            id='email'
+                            name='email'
+                            placeholder='Digite seu email'
                             required
+                            {...register("email")}
                         />
-                        <FontAwesomeIcon className={styles.icon} icon={faEye}/>
-                    </div>
-                    
-                    <button id='buttonLogin' className={styles.submitButton} type='submit'>Cadastrar</button>
 
-                </form>
-            </div>
-        </section>
+                        <div className={styles.inputSenha}>
+                            <input
+                                type='password'
+                                id='password'
+                                name='password'
+                                placeholder='Digite sua senha'
+                                required
+                                {...register("password")}
+                            />
+                            <FontAwesomeIcon className={styles.icon} icon={faEye} />
+                        </div>
+
+                        <div className={styles.inputSenha}>
+                            <input
+                                type='password'
+                                id='confirmPassword'
+                                name='confirmPassword'
+                                placeholder='Confirme sua senha'
+                                required
+                                {...register("confirmPassword")}
+                            />
+                            <FontAwesomeIcon className={styles.icon} icon={faEye} />
+                        </div>
+
+                        <button id='buttonLogin' className={styles.submitButton} type='submit'>Cadastrar</button>
+
+                    </form>
+                    {errorMessage &&
+                        <Modal 
+                            isOpen={true}
+                            onClose={() => setErrorMessage(null)}
+                            message={errorMessage}
+                        />
+                    }
+                </div>
+            </section>
         </>
     )
 }

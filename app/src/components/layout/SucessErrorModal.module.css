@@ -11,21 +11,31 @@
 }
 
 .modal_content {
-    background-color: #fff;
-    border-radius: 10px;
+    background-color: #fdf1cf;
+    padding: 20px;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
+    gap: 30px;
     align-items: center;
     justify-content: center;
 }
 
+.modal_content p {
+    font-size: 20px;
+}
+
 .modal_content p, .modal_content button {
-    margin: 30px;
     color: #FA240F;
+    font-weight: bolder;
 }
 
 .modal_content button {
     padding: 10px;
     border-radius: 10px;
     border: 2px solid #FA240F;
+}
+.modal_content button:hover {
+    background-color: #FA240F;
+    color: #fff;
 }
