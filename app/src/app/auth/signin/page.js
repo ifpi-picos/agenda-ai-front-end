@@ -9,6 +9,8 @@ import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { useState } from 'react'
 import Loading from '@/components/Loading'
+import { apiUrl } from '@/config/config'
+import Modal from '@/components/layout/SucessErrorModal'
 
 
 export default function Signin() {
@@ -23,12 +25,12 @@ export default function Signin() {
     const onSubmit = (data) => {
         setLoading(true);
 
-        axios.post("https://agendaai-api.onrender.com/auth/signin", {
+        axios.post(`${apiUrl}/auth/signin`, {
             email: data.email,
             password: data.password
         }).then((response) => {
             localStorage.setItem("token", response.data.token);
-            
+
             if (response.data.tipo === 'cliente') {
                 return router.push('/home')
             } else if (response.data.tipo === 'gerente') {
@@ -76,7 +78,13 @@ export default function Signin() {
                             <button id='buttonLogin' className={styles.submitButton} type='submit'>Entrar</button>
                         </form>
 
-                        {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
+                        {errorMessage &&
+                            <Modal
+                                isOpen={true}
+                                onClose={() => setErrorMessage(null)}
+                                message={errorMessage}
+                            />
+                        }
 
                         <div>
                             <span>Não possui conta ainda?</span>
