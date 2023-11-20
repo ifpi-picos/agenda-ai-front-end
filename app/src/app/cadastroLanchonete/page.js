@@ -51,7 +51,7 @@ export default function FormCadastroCantina() {
             <Container>
                 <div className={styles.boxEdit}>
                     <div className={styles.cantinaInfo}>
-                        <form className={styles.formInfo}>
+                        <form className={styles.formInfo} onSubmit={handleSubmit(onSubmit)}>
                             <h1>Cadastro de cantina</h1>
                             <label htmlFor="nomeUsuario">Nome do Gerente:</label>
                             <input 
@@ -93,7 +93,7 @@ export default function FormCadastroCantina() {
                                 placeholder="Digite o CNPJ da cantina"
                                 {...register("cnpj")}
                             />
-                            <label for="imagem">Anexe uma imagem da cantina:</label>
+                            <label htmlFor="imagem">Anexe uma imagem da cantina:</label>
                             <input 
                                 type="file"
                                 id="imagem"
@@ -102,9 +102,9 @@ export default function FormCadastroCantina() {
                         </form>
                     </div>
                     <div className={styles.cantinaEndereco}>
-                        <form className={styles.formEndereco}>
+                        <form className={styles.formEndereco} onSubmit={handleSubmit(onSubmit)}>
                             <h1>Endereço</h1>
-                            <label for="cep">Informe seu CEP:</label>
+                            <label htmlFor="cep">Informe seu CEP:</label>
                             <input
                                 type="text"
                                 id="cep"
@@ -115,14 +115,14 @@ export default function FormCadastroCantina() {
                                 {...register("cep")}
                             />
 
-                            <label for="rua">Logradouro:</label>
+                            <label htmlFor="rua">Logradouro:</label>
                             <input
                                 type="text"
                                 id="logradouro" 
                                 name="logradouro" 
                                 placeholder="Digite o logradouro"
                                 {...register("logradouro")}/>
-                            <label for="numero">Número:</label>
+                            <label htmlFor="numero">Número:</label>
                             <input 
                                 type="text" 
                                 id="numero" 
@@ -131,7 +131,7 @@ export default function FormCadastroCantina() {
                                 {...register("numero")}
                             />
 
-                            <label for="bairro">Bairro:</label>
+                            <label htmlFor="bairro">Bairro:</label>
                             <input 
                                 type="text" 
                                 id="bairro" 
@@ -140,7 +140,7 @@ export default function FormCadastroCantina() {
                                 {...register("bairro")}
                             />
 
-                            <label for="cidade">Cidade:</label>
+                            <label htmlFor="cidade">Cidade:</label>
                             <input
                                 type="text"
                                 id="cidade"
@@ -149,7 +149,7 @@ export default function FormCadastroCantina() {
                                 {...register("cidade")}
                             />
 
-                            <label for="estado">Estado:</label>
+                            <label htmlFor="estado">Estado:</label>
                             <input
                                 type="text"
                                 name="estado"
