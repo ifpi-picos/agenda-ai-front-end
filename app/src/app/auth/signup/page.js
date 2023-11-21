@@ -2,7 +2,7 @@
 import Navbar from "@/components/Navbar"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
@@ -50,6 +50,17 @@ export default function signup() {
         }
     })
 
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+    const togglePasswordVisibility = (field) => {
+        if (field === 'password') {
+            setShowPassword((prevShowPassword) => !prevShowPassword);
+        } else if (field === 'confirmPassword') {
+            setShowConfirmPassword((prevShowConfirmPassword) => !prevShowConfirmPassword);
+        }
+    };
+
     return (
         <>
             <Navbar />
@@ -76,26 +87,26 @@ export default function signup() {
 
                         <div className={styles.inputSenha}>
                             <input
-                                type='password'
+                                type={showPassword ? "text" : "password"}
                                 id='password'
                                 name='password'
                                 placeholder='Digite sua senha'
                                 required
                                 {...register("password")}
                             />
-                            <FontAwesomeIcon className={styles.icon} icon={faEye} />
+                            <FontAwesomeIcon className={styles.icon} icon={showPassword ? faEyeSlash : faEye} onClick={() => togglePasswordVisibility('password')} />
                         </div>
 
                         <div className={styles.inputSenha}>
                             <input
-                                type='password'
+                                type={showConfirmPassword ? 'text' : 'password'}
                                 id='confirmPassword'
                                 name='confirmPassword'
                                 placeholder='Confirme sua senha'
                                 required
                                 {...register("confirmPassword")}
                             />
-                            <FontAwesomeIcon className={styles.icon} icon={faEye} />
+                            <FontAwesomeIcon className={styles.icon} icon={showConfirmPassword ? faEyeSlash : faEye} onClick={() => togglePasswordVisibility('confirmPassword')} />
                         </div>
 
                         <button id='buttonLogin' className={styles.submitButton} type='submit'>Cadastrar</button>

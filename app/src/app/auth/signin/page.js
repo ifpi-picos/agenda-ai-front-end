@@ -1,5 +1,5 @@
 "use client"
-import { faEye } from '@fortawesome/free-solid-svg-icons'
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import styles from '@/app/auth/signin/signin.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
@@ -22,6 +22,13 @@ export default function Signin() {
     const { register, handleSubmit, formState: { errors } } = useForm({
 
     })
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+    };
+
     const onSubmit = (data) => {
         setLoading(true);
 
@@ -67,13 +74,13 @@ export default function Signin() {
                             </div>
                             <div className={styles.inputDiv}>
                                 <input
-                                    type="password"
+                                    type={showPassword ? "text" : "password"}
                                     id="password"
                                     placeholder="Senha"
                                     required
                                     {...register('password')}
                                 />
-                                <FontAwesomeIcon className={styles.icon} icon={faEye} />
+                                <FontAwesomeIcon className={styles.icon} icon={showPassword ? faEyeSlash : faEye} onClick={togglePasswordVisibility} />
                             </div>
                             <button id='buttonLogin' className={styles.submitButton} type='submit'>Entrar</button>
                         </form>
