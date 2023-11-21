@@ -10,6 +10,7 @@ import { faCalendar, faFile, faHamburger, faList, faShoppingBag, faUtensilSpoon 
 import Link from "next/link";
 
 import BuscaLanchonete from "@/services/BuscaLanchonete";
+import PrivateRoute from "@/components/PrivateRouter";
 
 export default async function GerenteLanchonetePage({ params }) {
     //const id = params.idLanchonete
@@ -18,8 +19,8 @@ export default async function GerenteLanchonetePage({ params }) {
     console.log(lanchonete.nomeLanchonete)
 
     return (
-        <>
-            <Navbar />
+        <PrivateRoute tipoUsuario={'gerente'}>
+            <Navbar opcoesGerente={true}/>
             <Container>
                 <PainelLanchonete
                     lanchonete={lanchonete}
@@ -63,6 +64,6 @@ export default async function GerenteLanchonetePage({ params }) {
                 </div>
 
             </Container>
-        </>
+        </ PrivateRoute>
     );
 };

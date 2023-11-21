@@ -7,6 +7,7 @@ import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import { useEffect, useState } from 'react'
 import Loading from '@/components/Loading'
+import PrivateRoute from '@/components/PrivateRouter'
 
 export default function Home() {
     const [lanchonetes, setLanchonetes] = useState([])
@@ -28,8 +29,8 @@ export default function Home() {
     }, [])
 
     return (
-        <>
-            <Navbar />
+        <PrivateRoute tipoUsuario={"cliente"}>
+            <Navbar opcoesCliente={true}/>
             {loading ? (
                 <Loading />
             ) : (
@@ -64,6 +65,6 @@ export default function Home() {
 
                 </main>
             )}
-        </>
+        </PrivateRoute>
     )
 }
