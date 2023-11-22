@@ -1,14 +1,17 @@
 
 .boxEdit {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
     padding: 20px;
-    justify-content: space-around;
     background: #fdf1cf;
     box-shadow: 5px 5px 0px #656053;
     border-radius: 20px;
     margin: 20px  0;
+}
+
+.boxEdit .text{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
 }
 
 .infoCantina {

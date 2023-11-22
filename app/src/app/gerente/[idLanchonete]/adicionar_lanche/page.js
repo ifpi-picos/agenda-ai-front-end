@@ -10,6 +10,7 @@ import Modal from "@/components/layout/SucessErrorModal";
 import { useRouter } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { apiUrl } from "@/config/config";
 
 export default function AdicionarLanche({ params }) {
     const [formData, setFormData] = useState({
@@ -50,7 +51,7 @@ export default function AdicionarLanche({ params }) {
         e.preventDefault();
         console.log(formData)
         try {
-            const response = await axios.post('https://agendaai-api.onrender.com/lanche/adicionarLanche',
+            const response = await axios.post(`${apiUrl}/lanche/adicionarLanche`,
             formData,
             {
                 headers: {

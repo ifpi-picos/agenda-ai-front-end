@@ -28,6 +28,7 @@ export default async function Lanches({ params }) {
                     {lanches.length > 0 &&
                         lanches.map((lanche) => (
                                     <CardLanche
+                                        key={lanche.idLanche}
                                         idLanche={lanche.idLanche}
                                         nomeLanche={lanche.nomeLanche}
                                         preco={lanche.preco}

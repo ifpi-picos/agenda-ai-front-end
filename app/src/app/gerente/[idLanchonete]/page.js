@@ -11,12 +11,28 @@ import Link from "next/link";
 
 import BuscaLanchonete from "@/services/BuscaLanchonete";
 import PrivateRoute from "@/components/PrivateRouter";
+import { useState, useEffect } from "react";
 
-export default async function GerenteLanchonetePage({ params }) {
+export default function GerenteLanchonetePage({ params }) {
     //const id = params.idLanchonete
 
-    const lanchonete = await BuscaLanchonete.buscarPorId(params.idLanchonete)
-    console.log(lanchonete.nomeLanchonete)
+    const [lanchonete, setLanchonete] = useState(null);
+
+    useEffect(() => {
+        BuscaLanchonete.buscarPorId(params.idLanchonete)
+            .then((lanchoneteData) => {
+                setLanchonete(lanchoneteData);
+                console.log(lanchoneteData.nomeLanchonete);
+            })
+            .catch((error) => {
+                console.error("Erro ao buscar lanchonete:", error);
+            });
+    }, [params.idLanchonete]);
+
+    if (!lanchonete) {
+        // Pode mostrar um indicador de carregamento aqui, se necessário
+        return null;
+    }
 
     return (
         <PrivateRoute tipoUsuario={'gerente'}>
@@ -67,3 +83,5 @@ export default async function GerenteLanchonetePage({ params }) {
         </ PrivateRoute>
     );
 };
+
+

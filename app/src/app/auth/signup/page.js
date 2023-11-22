@@ -23,32 +23,36 @@ const schema = yup.object().shape({
     confirmPassword: yup.string().required('A confirmação de senha deve ser preenchida')
 })
 
-export default function signup() {
+export default function useSignup() {
     const router = useRouter()
 
     const [errorMessage, setErrorMessage] = useState(null)
     const [successMessage, setSuccessMessage] = useState(null);
+    const [loading, setLoading] = useState(null)
 
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     })
     //"https://agendaai-api.onrender.com/auth/signup"
-    const onSubmit = (data) => axios.post(`${apiUrl}/auth/signup`, {
-        nomeUsuario: data.nomeUsuario,
-        email: data.email,
-        password: data.password,
-        confirmPassword: data.confirmPassword,
-        tipo: 'cliente'
-    }).then((response) => {
-        router.push('/auth/signin')
-    }).catch((error) => {
-        if (error.response) {
-            const responseData = error.response.data;
-            if (responseData.error) {
-                setErrorMessage(responseData.error)
+    const onSubmit = (data) => {
+        setLoading(true)
+        axios.post(`${apiUrl}/auth/signup`, {
+            nomeUsuario: data.nomeUsuario,
+            email: data.email,
+            password: data.password,
+            confirmPassword: data.confirmPassword,
+            tipo: 'cliente'
+        }).then((response) => {
+            router.push('/auth/signin')
+        }).catch((error) => {
+            if (error.response) {
+                const responseData = error.response.data;
+                if (responseData.error) {
+                    setErrorMessage(responseData.error)
+                }
             }
-        }
-    })
+        })
+    }
 
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -113,7 +117,7 @@ export default function signup() {
 
                     </form>
                     {errorMessage &&
-                        <Modal 
+                        <Modal
                             isOpen={true}
                             onClose={() => setErrorMessage(null)}
                             message={errorMessage}

@@ -8,13 +8,14 @@ import Navbar from '@/components/Navbar'
 import { useEffect, useState } from 'react'
 import Loading from '@/components/Loading'
 import PrivateRoute from '@/components/PrivateRouter'
+import { apiUrl } from '@/config/config'
 
 export default function Home() {
     const [lanchonetes, setLanchonetes] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch(`https://agendaai-api.onrender.com/lanchonetes/listar`, {
+        fetch(`${apiUrl}/lanchonetes/listar`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -52,6 +53,7 @@ export default function Home() {
                         {lanchonetes.length > 0 &&
                             lanchonetes.map((lanchonete) => (
                                 <CardLanchonete
+                                    key={lanchonete.id}
                                     id={lanchonete.id}
                                     nomeLanchonete={lanchonete.nomeLanchonete}
                                     endereco={lanchonete.endereco}
