@@ -38,7 +38,7 @@ function CloudinaryUpload({ onURLChange, defaultImage, width, height }) {
       )}
       {!imageSelected && (
         <CldUploadWidget
-          uploadPreset={process.env.localNEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}
+          uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}
           onSuccess={handleUploadSuccess}
         >
           {({ open }) => {
