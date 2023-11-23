@@ -10,9 +10,23 @@ import BuscaLanche from '@/services/Lanche'
 import AlterarLanche from '@/components/Lanchonetes/AlterarLanche'
 import VerLanche from '@/components/Lanchonetes/VerLanche'
 
-export default async function Lanche({ params }) {
+export default function Lanche({ params }) {
     const [editMode, setEditMode] = useState(false)
-    const lanche = await BuscaLanche.buscaPorId(params.idLanche)
+    const [lanche, setLanche] = useState(null)
+
+    useEffect(() => {
+        BuscaLanche.buscaPorId(params.idLanche)
+            .then((lancheData) => {
+                setLanche(lancheData)
+            })
+            .catch((error) => {
+                console.error("Erro ao buscar lanche")
+            })
+    }, [params.idLanche])
+
+    if (!lanche) {
+        return null
+    }
 
     return (
         <>

@@ -19,7 +19,7 @@ export default function PainelLanchonete({ lanchonete, edit, editUrl }) {
     return (
         <div className={styles.painelLanchonete}>
             <div className={styles.imageArea}>
-                <Image src={imagemLanchonete} />
+                <Image src={imagemLanchonete} alt='Imgem representativa da lanchonete'/>
             </div>
             <div className={styles.textInfo}>
                 <h1>{lanchonete.nomeLanchonete}</h1>

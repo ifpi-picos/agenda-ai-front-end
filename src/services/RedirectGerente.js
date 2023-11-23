@@ -2,19 +2,22 @@
 import BuscaLanchonete from "@/services/BuscaLanchonete";
 import { useRouter } from "next/navigation";
 
-export default async function RedirectGerente(idUsuario) {
-    const router = useRouter()
-    try {
-        const info = await BuscaLanchonete.buscaIdLanchonetePorUsuario(idUsuario);
+export default function RedirectGerente(idUsuario) {
+    const router = useRouter();
 
-        // Verifica se há um erro na resposta
-        if (info && info.error) {
-            throw new Error(info.error);
+    return new Promise(async (resolve, reject) => {
+        try {
+            const info = await BuscaLanchonete.buscaIdLanchonetePorUsuario(idUsuario);
+
+            if (info && info.error) {
+                throw new Error(info.error);
+            }
+
+            router.push(`/gerente/${info}`);
+            resolve();
+        } catch (error) {
+            console.error("Erro ao buscar ID da Lanchonete:", error);
+            reject(error);
         }
-
-        return router.push(`/gerente/${info}`)
-    } catch (error) {
-        console.error("Erro ao buscar ID da Lanchonete:", error);
-        return <div>Erro ao buscar ID da Lanchonete</div>;
-    }
+    });
 }

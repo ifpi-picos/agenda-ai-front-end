@@ -32,4 +32,6 @@ class Lanche {
     }
 }
 
-export default new Lanche()
+const lancheInstance = new Lanche()
+
+export default lancheInstance

@@ -29,4 +29,6 @@ class BuscaLanchonete {
       }
 }
 
-export default new BuscaLanchonete()
+const buscaLanchoneteInstance = new BuscaLanchonete()
+
+export default buscaLanchoneteInstance

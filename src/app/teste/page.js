@@ -1,5 +1,5 @@
 "use client"
 
 
-export default async function Teste() {
+export default function Teste() {
 }

@@ -14,4 +14,6 @@ class ListarLanches {
     }
 }
 
-export default new ListarLanches()
+const listaLancheInstance = new ListarLanches()
+
+export default listaLancheInstance
