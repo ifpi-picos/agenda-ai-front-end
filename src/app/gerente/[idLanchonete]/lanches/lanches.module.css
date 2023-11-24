@@ -57,6 +57,14 @@
 
 .lanches {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+}
+
+@media (max-width: 500px) {
+    .novo_lanche p {
+        display: none;
+    }
+    .novo_lanche .iconFaPlus {
+        margin: auto;
+    }
 }

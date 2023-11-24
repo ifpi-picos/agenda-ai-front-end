@@ -36,7 +36,7 @@ export default function GerenteLanchonetePage({ params }) {
 
     return (
         <PrivateRoute tipoUsuario={'gerente'}>
-            <Navbar opcoesGerente={true}/>
+            <Navbar opcoesGerente={true} />
             <Container>
                 <PainelLanchonete
                     lanchonete={lanchonete}
@@ -44,36 +44,28 @@ export default function GerenteLanchonetePage({ params }) {
                     editUrl={`/gerente/${params.idLanchonete}/editar`}
                 />
                 <div className={styles.opcoes}>
-                    <Link href={`/gerente/${params.idLanchonete}/lanches`} passHref>
-                        <div className={styles.cardOpcao}>
-                            <FontAwesomeIcon className={styles.icon} icon={faHamburger} />
-                            <div className={styles.opcaoTexto}>
-                                <h2>Lanches</h2>
-                            </div>
+                    <Link className={styles.cardOpcao} href={`/gerente/${params.idLanchonete}/lanches`} passHref>
+                        <FontAwesomeIcon className={styles.icon} icon={faHamburger} />
+                        <div className={styles.opcaoTexto}>
+                            <h2>Lanches</h2>
                         </div>
                     </Link>
-                    <Link href={`/gerente/${params.idLanchonete}/cardapio`} passHref>
-                        <div className={styles.cardOpcao}>
-                            <FontAwesomeIcon className={styles.icon} icon={faCalendar} />
-                            <div className={styles.opcaoTexto}>
-                                <h2>Cardápio</h2>
-                            </div>
+                    <Link className={styles.cardOpcao} href={`/gerente/${params.idLanchonete}/cardapio`} passHref>
+                        <FontAwesomeIcon className={styles.icon} icon={faCalendar} />
+                        <div className={styles.opcaoTexto}>
+                            <h2>Cardápio</h2>
                         </div>
                     </Link>
-                    <Link href={`/gerente/${params.idLanchonete}/agendamentos`} passHref>
-                        <div className={styles.cardOpcao}>
-                            <FontAwesomeIcon className={styles.icon} icon={faList} />
-                            <div className={styles.opcaoTexto}>
-                                <h2>Agendamentos</h2>
-                            </div>
+                    <Link className={styles.cardOpcao} href={`/gerente/${params.idLanchonete}/agendamentos`} passHref>
+                        <FontAwesomeIcon className={styles.icon} icon={faList} />
+                        <div className={styles.opcaoTexto}>
+                            <h2>Agendamentos</h2>
                         </div>
                     </Link>
-                    <Link href={`/gerente/${params.idLanchonete}/historico-pedidos`} passHref>
-                        <div className={styles.cardOpcao}>
-                            <FontAwesomeIcon className={styles.icon} icon={faFile} />
-                            <div className={styles.opcaoTexto}>
-                                <h2>Histórico de Pedidos</h2>
-                            </div>
+                    <Link className={styles.cardOpcao} href={`/gerente/${params.idLanchonete}/historico-pedidos`} passHref>
+                        <FontAwesomeIcon className={styles.icon} icon={faFile} />
+                        <div className={styles.opcaoTexto}>
+                            <h2>Histórico de Pedidos</h2>
                         </div>
                     </Link>
 

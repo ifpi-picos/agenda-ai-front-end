@@ -46,7 +46,6 @@
 
 @media (max-width: 1200px) {
     .opcoes {
-        margin: 10px;
         flex-wrap: wrap;
     }
 }

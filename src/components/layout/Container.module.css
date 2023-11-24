@@ -20,3 +20,9 @@
     flex-direction: column;
     justify-content: flex-start;
 }
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 10px;
+    }
+}

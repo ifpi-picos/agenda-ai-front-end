@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    width: 100%;
     text-align: center;
     padding: 20px;
 }
@@ -36,10 +36,9 @@
 }
 
 .apresentacao .botoes{
-    margin: 30px;
+    margin-top: 30px;
     font-size: 20px;
     display: flex;
-    flex-direction: row;
     gap: 20px;
 }
 
@@ -48,7 +47,6 @@
     color: #FFF7E1;
     border-radius: 30px;
     font-weight: bold;
-    width: 150px;
     border: none;
     outline: none;
     text-decoration: none;
@@ -56,34 +54,28 @@
     font-size: 20px;
     cursor: pointer;
     transition: 0.2s;
+}
+
+.botoes #cadastro, .botoes #login {
+    width: 150px;
 }
 
 .btn:hover {
     background: #FA240F;
 }
 
-.btnn {
-    background: #FA680F;
-    color: #FFF7E1;
-    border-radius: 30px;
-    font-weight: bold;
-    width: 250px;
-    border: none;
-    outline: none;
-    text-decoration: none;
-    padding: 10px 10px 10px 15px;
-    font-size: 20px;
-    cursor: pointer;
-    transition: 0.2s;
-}
 
-.btnn:hover {
-    background: #FA240F;
+.conteudoDestaque {
+    display: flex;
+    align-items: center;
+}
+.conteudoDestaque .text {
+    width: 50%;
 }
 
 .vantagens {
     display: flex;
-    width: 490px;
+    width: 100%;
     flex-direction: column;
     align-items: left;
     justify-content: left;
@@ -156,7 +148,7 @@
     max-height: 400px;
     width: fit-content;
     max-width: 30%;
-    border-radius: 25px;
+    border-radius: 10px;
     margin: 0 5px 0 5px;
 } 
 
@@ -166,4 +158,25 @@
 
 .img img {
     width: 100%;
+}
+
+@media (max-width: 800px) {
+    .conteudoDestaque {
+        flex-direction: column;
+        width: 100%;
+    }
+    .conteudoDestaque .text {
+        width: 100%;
+        padding: 40px;
+    }
+    
+    .amostragem {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 375px) {
+    .botoes {
+        flex-direction: column;
+    }
 }

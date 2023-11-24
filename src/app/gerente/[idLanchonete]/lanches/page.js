@@ -21,7 +21,7 @@ export default async function Lanches({ params }) {
                     <BarraDePesquisa placeholder="Pesquisar Lanche..."/>
                     <Link href={`/gerente/${params.idLanchonete}/adicionar_lanche`} className={styles.novo_lanche} passHref>
                         <FontAwesomeIcon icon={faPlus} className={styles.iconFaPlus}/>
-                        Adicionar lanche
+                        <p>Adicionar lanche</p>
                     </Link>
                 </div>
                 <div className={styles.lanches}>
