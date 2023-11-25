@@ -1,8 +1,8 @@
 import styles from '@/app/lanche/lanche.module.css';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function AlterarLanche({ lanche, editMode, setEditMode }) {
+function AlterarLanche({ lanche, editMode, idLanche, setLanche, setEditMode }) {
     const [formData, setFormData] = useState({
         nomeLanche: lanche.nomeLanche,
         descricao: lanche.descricao,
@@ -10,25 +10,41 @@ function AlterarLanche({ lanche, editMode, setEditMode }) {
         tipo: lanche.tipo,
         urlImagem: lanche.urlImagem,
     });
+    const [token, setToken] = useState('')
+    const [erro, setErro] = useState(null)
+
+    useEffect(() => {
+        const storedToken = localStorage.getItem("token")
+        if(storedToken) {
+            setToken(storedToken)
+        }
+    }, [])
 
     const handleCancelClick = () => {
         setEditMode(false);
     };
 
     const handleSaveClick = async () => {
+        const precoRegex = /^\d+(\.\d{1,2})?$/;
+        if (!precoRegex.test(formData.preco)) {
+            setErro('Formato inválido para o preço. Use o formato X.XX');
+            return;
+        }
         try {
             const response = await fetch(`https://agendaai-api.onrender.com/lanche/alterar/${lanche.idLanche}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `${token}`
                 },
                 body: JSON.stringify(formData),
             });
 
             if (response.ok) {
                 const data = await response.json();
+                setErro(null)
                 console.log('Lanche atualizado com sucesso:', data);
-                setEditMode(false);
+                window.location.reload()
             } else {
                 console.error('Erro ao atualizar lanche:', response.statusText);
             }
@@ -67,7 +83,8 @@ function AlterarLanche({ lanche, editMode, setEditMode }) {
                     <option value="Bebida">Bebida</option>
                     <option value="Outro">Outro tipo</option>
                 </select>
-                <input type="text" name="preco" value={formData.preco.toFixed(2)} onChange={handleInputChange} required />
+                <input type="text" name="preco" value={formData.preco} onChange={handleInputChange} required />
+                {erro && <p className={styles.erro}>{erro}</p>}
                 <div className={styles.botoes}>
                     <button type="button" onClick={handleCancelClick}>
                         Cancelar

@@ -17,7 +17,12 @@ export default async function TelaCantina({params}) {
                 <PainelLanchonete 
                     lanchonete={lanchonete}
                 />
-                <div className={styles.amostragem}>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>Visualização de cardápio em produção</p>
+                {/*<div className={styles.amostragem}>
                     <div className={styles.categoria}>
                         <h2>Salgados</h2>
                     </div>
@@ -103,7 +108,7 @@ export default async function TelaCantina({params}) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*/}
             </Container>
         </>
     )

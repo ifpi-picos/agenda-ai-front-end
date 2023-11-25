@@ -107,3 +107,9 @@
     background: #FA240F;
     color: #fff;
 }
+
+.erro {
+    color: #FA240F;
+    font-weight: bold;
+    font-size: 20px;
+}

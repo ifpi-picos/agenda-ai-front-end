@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react'
 import BuscaLanche from '@/services/Lanche'
 import AlterarLanche from '@/components/Lanchonetes/AlterarLanche'
 import VerLanche from '@/components/Lanchonetes/VerLanche'
+import Loading from '@/components/Loading'
 
 export default function Lanche({ params }) {
     const [editMode, setEditMode] = useState(false)
@@ -20,12 +21,14 @@ export default function Lanche({ params }) {
                 setLanche(lancheData)
             })
             .catch((error) => {
-                console.error("Erro ao buscar lanche")
+                console.error("Erro ao buscar lanche", error)
             })
     }, [params.idLanche])
 
     if (!lanche) {
-        return null
+        return (
+            <Loading />
+        )
     }
 
     return (
@@ -35,7 +38,9 @@ export default function Lanche({ params }) {
                 {editMode && (
                     <AlterarLanche
                         lanche={lanche}
+                        idLanche={params.idLanche}
                         editMode={editMode}
+                        setLanche={setLanche}
                         setEditMode={setEditMode}
                     />
                 ) || (

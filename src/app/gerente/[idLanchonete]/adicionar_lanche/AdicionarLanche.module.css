@@ -2,13 +2,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 500px;
+    width: 100%;
     padding: 20px;
-    margin: auto;
+    margin: 10px auto;
     border-radius: 10px;
+    background: #fdf1cf;
     border: 1px solid #FA240F;
     box-shadow: 5px 5px 0px #656053;
-    gap: 20px;
+}
+
+.formArea {
+    display: flex;
+    width: 100%;
+}
+
+.image, .info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
 }
 
 .form h1 {
@@ -17,7 +31,7 @@
     font-size: 30px;
 }
 
-.formArea {
+.labelInput {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -31,8 +45,10 @@
 
 .formArea input {
     border: none;
-    border-bottom: 2px solid #FA680F;
-    background: transparent;
+    box-shadow: 3px 3px 0px #FA680F;
+    border-radius: 10px;
+    background: #fdf6e3;
+    margin: 20px 0;
     padding: 8px 0px 8px 10px;
     outline: none;
     width: 100%;
@@ -44,9 +60,11 @@
 .formArea select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #FA240F;
-    border-radius: 5px;
+    border: 2px solid #FA680F;
+    box-shadow: 3px 3px 0px #FA680F;
+    border-radius: 10px;
     box-sizing: border-box;
+    background-color: #fdf6e3;
     color: #FA240F;
     font-weight: bold;
     text-align: center;
@@ -54,7 +72,7 @@
 }
 
 .formArea select option {
-    background-color: #fff;
+    background-color: #fdf6e3;
     color: #FA240F;
 }
 
@@ -65,11 +83,12 @@
 }
 
 .buttonSubmit {
-    border: 2px solid #FA240F;
-    background-color: #fdf1cf;
+    margin: 20px 0;
+    border: none;
+    background-color: #FA680F;
     padding: 10px;
     border-radius: 10px;
-    color: #FA240F;
+    color: #fdf1cf;
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;

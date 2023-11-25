@@ -12,6 +12,7 @@ import Link from "next/link";
 import BuscaLanchonete from "@/services/BuscaLanchonete";
 import PrivateRoute from "@/components/PrivateRouter";
 import { useState, useEffect } from "react";
+import Loading from "@/components/Loading";
 
 export default function GerenteLanchonetePage({ params }) {
     //const id = params.idLanchonete
@@ -31,7 +32,9 @@ export default function GerenteLanchonetePage({ params }) {
 
     if (!lanchonete) {
         // Pode mostrar um indicador de carregamento aqui, se necessário
-        return null;
+        return (
+            <Loading />
+        );
     }
 
     return (

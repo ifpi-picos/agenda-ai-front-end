@@ -90,61 +90,66 @@ export default function AdicionarLanche({ params }) {
                     <h1>Adicionar Lanche</h1>
 
                     <div className={styles.formArea}>
-                        <label>Imagem do Lanche</label>
-                        <CloudinaryUpload
-                            onURLChange={handleImageURLChange}
-                            defaultImage={formData.urlImagem}
-                            height={250}
-                            width={250}
-                        />
-                        {errors.imagem && (
-                            <div className="error">{errors.imagem.message}</div>
-                        )}
-                    </div>
-                    <div className={styles.formArea}>
-                        <label>Nome do Lanche</label>
-                        <input
-                            type="text"
-                            name="nomeLanche"
-                            placeholder="Digite o nome do lanche"
-                            value={formData.nomeLanche}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className={styles.formArea}>
-                        <label>Descrição</label>
-                        <input
-                            type="text"
-                            name="descricao"
-                            placeholder="Digite uma pequena descrição do lanche"
-                            value={formData.descricao}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className={styles.formArea}>
-                        <label>Preço</label>
-
-                        <input
-                            type="text"
-                            name="preco"
-                            placeholder="Informe o preço"
-                            value={formData.preco}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className={styles.formArea}>
-                        <label>Tipo</label>
-                        <select
-                            name="tipo"
-                            value={formData.tipo}
-                            onChange={handleChange}
-                        >
-                            <option value="Salgado">Salgado</option>
-                            <option value="Bolo">Bolo</option>
-                            <option value="Doce">Doce</option>
-                            <option value="Bebida">Bebida</option>
-                            <option value="Outro">Outro tipo</option>
-                        </select>
+                        <div className={styles.image}>
+                            <div className={styles.labelInput}>
+                                <label>Imagem do Lanche</label>
+                                <CloudinaryUpload
+                                    onURLChange={handleImageURLChange}
+                                    defaultImage={formData.urlImagem}
+                                    height={250}
+                                    width={250}
+                                />
+                                {errors.imagem && (
+                                    <div className="error">{errors.imagem.message}</div>
+                                )}
+                            </div>
+                        </div>
+                        <div className={styles.info}>
+                            <div className={styles.labelInput}>
+                                <label>Nome do Lanche</label>
+                                <input
+                                    type="text"
+                                    name="nomeLanche"
+                                    placeholder="Digite o nome do lanche"
+                                    value={formData.nomeLanche}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                            <div className={styles.labelInput}>
+                                <label>Descrição</label>
+                                <input
+                                    type="text"
+                                    name="descricao"
+                                    placeholder="Digite uma pequena descrição do lanche"
+                                    value={formData.descricao}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                            <div className={styles.labelInput}>
+                                <label>Preço</label>
+                                <input
+                                    type="text"
+                                    name="preco"
+                                    placeholder="Informe o preço"
+                                    value={formData.preco}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                            <div className={styles.labelInput}>
+                                <label>Tipo</label>
+                                <select
+                                    name="tipo"
+                                    value={formData.tipo}
+                                    onChange={handleChange}
+                                >
+                                    <option value="Salgado">Salgado</option>
+                                    <option value="Bolo">Bolo</option>
+                                    <option value="Doce">Doce</option>
+                                    <option value="Bebida">Bebida</option>
+                                    <option value="Outro">Outro tipo</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <button type="submit" className={styles.buttonSubmit}>Adicionar Lanche</button>
                 </form>

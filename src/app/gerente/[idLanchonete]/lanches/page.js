@@ -1,3 +1,4 @@
+"use client"
 import CardLanche from "@/components/Lanchonetes/CardLanche";
 import Navbar from "@/components/Navbar";
 import Container from "@/components/layout/Container";
@@ -10,8 +11,28 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import BarraDePesquisa from "@/components/layout/BarraDePesquisa";
+import { useEffect, useState } from "react";
+import Loading from "@/components/Loading";
 export default async function Lanches({ params }) {
-    const lanches = await ListarLanches.listarLanches(params.idLanchonete)
+    const [lanches, setLanches] = useState(null)
+
+    useEffect(() => {
+        ListarLanches.listarLanches(params.idLanchonete)
+            .then((lanchesData) => {
+                setLanches(lanchesData)
+            })
+            .catch((error) => {
+                console.error("Erro ao buscar lanches:", error)
+            })
+    }, [params.idLanchonete])
+
+    if (!lanches) {
+        return (
+            <Loading />
+        );
+    }
+
+    //const lanches = await ListarLanches.listarLanches(params.idLanchonete)
 
     return (
         <>
