@@ -29,7 +29,7 @@
     flex-direction: column;
     align-items: left;
     justify-content: space-evenly;
-    gap: 30px;
+    gap: 20px;
     text-align: center;
     
 }
@@ -42,15 +42,22 @@
     margin: auto;
 }
 
+.formLanche label, .tituloInfo {
+    color: #FA240F;
+    font-weight: bold;
+    font-size: 18px;
+}
+
 .formLanche input, .item {
     border: none;
-    color: #FA240F;
-    font-size: 18px;
-    border-bottom: 2px solid #FA240F;
+    box-shadow: 3px 3px 0px #FA680F;
+    border-radius: 10px;
+    background: #fdf6e3;
     padding: 8px 0px 8px 10px;
     outline: none;
     width: 100%;
     text-align: center;
+    margin-top: -10px;
 }
 
 .formLanche input {
@@ -63,11 +70,12 @@
 }
 
 .formLanche select {
-    border: 2px solid #FA240F;
+    border: 2px solid #FA680F;
+    box-shadow: 3px 3px 0px #FA680F;
     border-radius: 15px;
     color: #FA240F;
     font-size: 18px;
-    background: transparent;
+    background: #fdf6e3;
     padding: 8px 0px 8px 10px;
     outline: none;
     width: 100%;
@@ -84,8 +92,8 @@
 }
 
 .botoes button {
-    background: #fff;
-    color: #FA240F;
+    background: #FA680F;
+    color: #fff;
     border-radius: 30px;
     width: 100%;
     border: 2px solid #FA240F;
@@ -110,6 +118,15 @@
 
 .erro {
     color: #FA240F;
-    font-weight: bold;
+    font-style: italic;
     font-size: 20px;
+}
+
+@media (max-width: 800px) {
+    .boxLanche {
+        flex-direction: column;
+    }
+    .formLanche, .infoLanche, .boxLanche .imageArea {
+        width: 100%;
+    }
 }

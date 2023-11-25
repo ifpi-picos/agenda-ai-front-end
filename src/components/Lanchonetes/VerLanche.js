@@ -22,8 +22,13 @@ function VerLanche({ lanche, editMode, setEditMode }) {
             </div>
             <div className={styles.infoLanche}>
                 <h1>{lanche.nomeLanche}</h1>
+                <div className={styles.tituloInfo}>Descrição:</div>
                 <div className={styles.item}>{lanche.descricao}</div>
+
+                <div className={styles.tituloInfo}>Tipo de lanche:</div>
                 <div className={styles.item}>{lanche.tipo}</div>
+
+                <div className={styles.tituloInfo}>Preço:</div>
                 <div className={styles.item}>R$ {lanche.preco.toFixed(2)}</div>
                 <div className={styles.botoes}>
                     <button onClick={handleRemoveClick}>Remover</button>

@@ -68,8 +68,13 @@ function AlterarLanche({ lanche, editMode, idLanche, setLanche, setEditMode }) {
             </div>
             <form className={styles.formLanche}>
                 <h1>Edição de lanche</h1>
+                <label>Nome do lanche:</label>
                 <input type="text" name="nomeLanche" value={formData.nomeLanche} onChange={handleInputChange} required />
+
+                <label>Descrição:</label>
                 <input type="text" name="descricao" value={formData.descricao} onChange={handleInputChange} required />
+
+                <label>Tipo:</label>
                 <select
                     className={styles.comboBox}
                     name="tipo"
@@ -83,6 +88,8 @@ function AlterarLanche({ lanche, editMode, idLanche, setLanche, setEditMode }) {
                     <option value="Bebida">Bebida</option>
                     <option value="Outro">Outro tipo</option>
                 </select>
+
+                <label>Preço:</label>
                 <input type="text" name="preco" value={formData.preco} onChange={handleInputChange} required />
                 {erro && <p className={styles.erro}>{erro}</p>}
                 <div className={styles.botoes}>
