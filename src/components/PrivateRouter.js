@@ -28,7 +28,10 @@ const PrivateRoute = ({ children, tipoUsuario, idUsuario }) => {
                 setModalOpen(true);
             } else {
                 const decodedToken = jwtDecode(storedToken)
-                if (decodedToken.tipo !== tipoUsuario || decodedToken.id !== idUsuario) {
+                if (decodedToken.tipo !== tipoUsuario) {
+                    setErro("Acesso negado!") //se alterar a mensagem de erro aqui altere em closeModal() também
+                    setModalOpen(true)
+                } else if (decodedToken.tipo === "gerente" && decodedToken.id !== idUsuario) {
                     setErro("Acesso negado!") //se alterar a mensagem de erro aqui altere em closeModal() também
                     setModalOpen(true)
                 }
@@ -37,7 +40,7 @@ const PrivateRoute = ({ children, tipoUsuario, idUsuario }) => {
                 }
             }
         }
-    }, [router, tipoUsuario]);
+    }, [router, tipoUsuario, idUsuario]);
 
     const closeModal = () => {
         if (erro === "Acesso negado!") {
