@@ -1,9 +1,10 @@
+import { apiUrl } from "@/config/config"
 
 
 class ListarLanches {
     async listarLanches(idLanchonete) {
         try {
-            const res = await fetch(`https://agendaai-api.onrender.com/lanche/${idLanchonete}/listarLanches`, {
+            const res = await fetch(`${apiUrl}/lanche/${idLanchonete}/listarLanches`, {
                 cache: 'no-store'
             })
             const lanches = await res.json()

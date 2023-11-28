@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 
-const PrivateRoute = ({ children, tipoUsuario }) => {
+const PrivateRoute = ({ children, tipoUsuario, idUsuario }) => {
     const [token, setToken] = useState("");
     const [erro, setErro] = useState(null);
     const [modalOpen, setModalOpen] = useState(false); // Estado para controlar se a modal está aberta
@@ -28,10 +28,11 @@ const PrivateRoute = ({ children, tipoUsuario }) => {
                 setModalOpen(true);
             } else {
                 const decodedToken = jwtDecode(storedToken)
-                if (decodedToken.tipo !== tipoUsuario) {
-                    setErro("Você não tem permissão para acessar essa página")
+                if (decodedToken.tipo !== tipoUsuario || decodedToken.id !== idUsuario) {
+                    setErro("Acesso negado!") //se alterar a mensagem de erro aqui altere em closeModal() também
                     setModalOpen(true)
-                } else {
+                }
+                 else {
                     setErro(`Ocorreu um erro`)
                 }
             }
@@ -39,8 +40,7 @@ const PrivateRoute = ({ children, tipoUsuario }) => {
     }, [router, tipoUsuario]);
 
     const closeModal = () => {
-        setModalOpen(false);
-        if (erro === "Você não tem permissão para acessar essa página") {
+        if (erro === "Acesso negado!") {
             router.push('/')
         } else {
             router.push("/auth/signin");

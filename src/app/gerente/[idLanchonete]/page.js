@@ -38,7 +38,10 @@ export default function GerenteLanchonetePage({ params }) {
     }
 
     return (
-        <PrivateRoute tipoUsuario={'gerente'}>
+        <PrivateRoute
+            tipoUsuario={'gerente'}
+            idUsuario={lanchonete.idUsuario}
+        >
             <Navbar opcoesGerente={true} />
             <Container>
                 <PainelLanchonete
@@ -47,7 +50,8 @@ export default function GerenteLanchonetePage({ params }) {
                     editUrl={`/gerente/${params.idLanchonete}/editar`}
                 />
                 <div className={styles.opcoes}>
-                    <Link className={styles.cardOpcao} href={`/gerente/${params.idLanchonete}/lanches`} passHref>
+                    <Link className={styles.cardOpcao} href={`/gerente/${params.idLanchonete}/lanches`}
+                        passHref>
                         <FontAwesomeIcon className={styles.icon} icon={faHamburger} />
                         <div className={styles.opcaoTexto}>
                             <h2>Lanches</h2>
