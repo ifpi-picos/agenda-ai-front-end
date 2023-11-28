@@ -10,6 +10,10 @@
     justify-content: space-between;
 }
 
+.search_section h3 {
+    color: #FA240F;
+}
+
 .search_bar {
     border: 2px solid #FA240F;
     border-radius: 1em;

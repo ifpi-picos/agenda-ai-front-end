@@ -59,7 +59,7 @@ export default function FormCadastroCantina() {
                             <form className={styles.formInfo} onSubmit={handleSubmit(onSubmit)}>
                                 <h1>Cadastro de cantina</h1>
                                 <label htmlFor="imagem">Anexe uma imagem da cantina:</label>
-                                <div>"envio de imagem indisponível no momento"</div>
+                                <div>envio de imagem indisponível no momento</div>
                                 <label htmlFor="nomeUsuario">Nome do Gerente:</label>
                                 <input
                                     type="text"

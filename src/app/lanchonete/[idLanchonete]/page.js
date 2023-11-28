@@ -6,9 +6,27 @@ import Coxinha from '/public/coxinha.jpg'
 import PainelLanchonete from '@/components/Lanchonetes/PainelLanchonete'
 import Container from '@/components/layout/Container'
 import BuscaLanchonete from '@/services/BuscaLanchonete'
+import { useEffect, useState } from 'react'
+import Loading from '@/components/Loading'
 
-export default async function TelaCantina({params}) {
-    const lanchonete = await BuscaLanchonete.buscarPorId(params.idLanchonete)
+export default function TelaCantina({params}) {
+    //const lanchonete = await BuscaLanchonete.buscarPorId(params.idLanchonete)
+    const [lanchonete, setLanchonete] = useState(null)
+
+    useEffect(() => {
+        BuscaLanchonete.buscarPorId(params.idLanchonete)
+            .then((lanchoneteData) => {
+                setLanchonete(lanchoneteData)
+            }).catch((error) => {
+                console.error("Erro ao buscar lanchonete")
+            })
+    }, [params.idLanchonete])
+
+    if (!lanchonete) {
+        return (
+            <Loading />
+        )
+    }
 
     return (
         <>
