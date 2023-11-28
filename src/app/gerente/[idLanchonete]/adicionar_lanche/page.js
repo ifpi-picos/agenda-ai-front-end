@@ -49,6 +49,12 @@ export default function AdicionarLanche({ params }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!formData.tipo) {
+            setErrorMessage('Por favor, escolha o tipo do lanche antes de enviar.');
+            setSuccessMessage('');
+            setModalOpen(true);
+            return; // Impedir o envio do formulário se o campo "tipo" estiver vazio
+        }
         console.log(formData)
         try {
             const response = await axios.post(`${apiUrl}/lanche/adicionarLanche`,
@@ -142,6 +148,7 @@ export default function AdicionarLanche({ params }) {
                                     value={formData.tipo}
                                     onChange={handleChange}
                                 >
+                                    <option value={null}>Escolha o tipo do lanche</option>
                                     <option value="Salgado">Salgado</option>
                                     <option value="Bolo">Bolo</option>
                                     <option value="Doce">Doce</option>

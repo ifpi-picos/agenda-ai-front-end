@@ -1,4 +1,5 @@
 import styles from '@/app/lanche/lanche.module.css';
+import { apiUrl } from '@/config/config';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -31,7 +32,7 @@ function AlterarLanche({ lanche, editMode, idLanche, setLanche, setEditMode }) {
             return;
         }
         try {
-            const response = await fetch(`https://agendaai-api.onrender.com/lanche/alterar/${lanche.idLanche}`, {
+            const response = await fetch(`${apiUrl}/lanche/alterar/${lanche.idLanche}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
