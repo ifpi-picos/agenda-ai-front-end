@@ -121,3 +121,13 @@
     align-items: center;
     gap: 10px;
 }
+
+.lanches {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.h3LanchesDisponiveis {
+    color: #FA240F;
+    margin: auto;
+}

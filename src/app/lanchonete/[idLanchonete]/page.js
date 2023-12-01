@@ -8,10 +8,13 @@ import Container from '@/components/layout/Container'
 import BuscaLanchonete from '@/services/BuscaLanchonete'
 import { useEffect, useState } from 'react'
 import Loading from '@/components/Loading'
+import ListarLanches from '@/services/ListarLanches'
+import CardLanche from '@/components/Lanchonetes/CardLanche'
 
-export default function TelaCantina({params}) {
+export default function TelaCantina({ params }) {
     //const lanchonete = await BuscaLanchonete.buscarPorId(params.idLanchonete)
     const [lanchonete, setLanchonete] = useState(null)
+    const [lanches, setLanches] = useState(null)
 
     useEffect(() => {
         BuscaLanchonete.buscarPorId(params.idLanchonete)
@@ -20,9 +23,16 @@ export default function TelaCantina({params}) {
             }).catch((error) => {
                 console.error("Erro ao buscar lanchonete")
             })
+        ListarLanches.listarLanches(params.idLanchonete)
+            .then((lanchesData) => {
+                setLanches(lanchesData)
+            })
+            .catch((error) => {
+                console.error("Erro ao buscar lanches:", error)
+            })
     }, [params.idLanchonete])
 
-    if (!lanchonete) {
+    if (!lanchonete || !lanches) {
         return (
             <Loading />
         )
@@ -32,14 +42,26 @@ export default function TelaCantina({params}) {
         <>
             <Navbar />
             <Container>
-                <PainelLanchonete 
+                <PainelLanchonete
                     lanchonete={lanchonete}
                 />
-                <p>.</p>
-                <p>.</p>
-                <p>.</p>
-                <p>.</p>
-                <p>Visualização de cardápio em produção</p>
+                <h3 className={styles.h3LanchesDisponiveis}>Lanches disponíveis:</h3>
+                <div className={styles.lanches}>
+                    {lanches.length > 0 ? (
+                        lanches.map((lanche) => (
+                            <CardLanche
+                                key={lanche.idLanche}
+                                idLanche={lanche.idLanche}
+                                nomeLanche={lanche.nomeLanche}
+                                preco={lanche.preco}
+                                urlImagem={lanche.urlImagem}
+                                urlHref={`/cliente/lanche/${lanche.idLanche}`}
+                            />
+                        ))
+                    ) : (
+                        <p>Não há lanches cadastrados nessa lanchonete</p>
+                    )}
+                </div>
                 {/*<div className={styles.amostragem}>
                     <div className={styles.categoria}>
                         <h2>Salgados</h2>
