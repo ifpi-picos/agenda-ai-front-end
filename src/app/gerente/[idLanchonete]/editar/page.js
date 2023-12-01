@@ -6,8 +6,7 @@ import Image from "next/image";
 import imagemLanchonete from "../../../../../public/imagem-lanchonete1.jpg";
 
 
-export default async function EditarLanchonete({params}) {
-    const lanchonete = await BuscaLanchonete.buscarPorId(params.idLanchonete)
+export default function EditarLanchonete({params}) {
 
     return (
         <>
