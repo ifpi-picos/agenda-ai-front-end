@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -39,8 +41,11 @@
 }
 
 .logo {
-    width: 80px;
-    
+    font-size: 20px;
+    width: 150px;
+    font-family: 'Pacifico', cursive;
+    color: #FAF0EC;
+    text-decoration: none;
 }
 
 .logo img {
@@ -70,4 +75,16 @@
 .opcoesNavbar button:hover {
     background-color: #D8FFDB;
     font-weight: bold;
+}
+
+@media (max-width: 500px) {
+    .logo h1 {
+        display: none;
+    }
+}
+
+@media (min-width: 500px) {
+    .logo img {
+        display: none;
+    }
 }

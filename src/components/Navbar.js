@@ -24,6 +24,7 @@ export default function Navbar({ opcoesCliente, opcoesGerente }) {
             <div className={styles.container}>
                 <Link className={styles.logo} href='/' passHref>
                     <Image src={logo} alt="logo_agendaai" />
+                    <h1>Agenda aí</h1>
                 </Link>
                 {(opcoesCliente || opcoesGerente) &&
                     <div className={styles.opcoesNavbar}>

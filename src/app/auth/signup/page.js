@@ -1,5 +1,6 @@
 "use client"
 import Navbar from "@/components/Navbar"
+import Link from 'next/link'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
@@ -123,6 +124,11 @@ export default function useSignup() {
                             message={errorMessage}
                         />
                     }
+
+                    <div className={styles.ref}>
+                        <span>Já possui uma conta?</span>
+                        <Link href='/auth/signin'>Login</Link>
+                    </div>
                 </div>
             </section>
         </>

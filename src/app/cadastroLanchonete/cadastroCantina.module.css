@@ -41,7 +41,7 @@
 }
 
 .formInfo h1, .formEndereco h1, .infoCantina h1 {
-    font-family: "Pacifico", cursive;
+    font-family: "Lobster", cursive;
     color: #FA240F;
     font-size: 30px;
     cursor: default;
@@ -96,4 +96,58 @@
 
 .formEndereco button:hover {
     background: #FA240F;
+}
+
+@media (max-width: 875px) {
+    .boxEdit .text {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 475px) {
+    .boxEdit {
+        padding: 10px;
+    }
+
+    .boxEdit .text {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .infoCantina {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .infoCantina img {
+        margin-right: 0;
+    }
+
+    .formInfo, .formEndereco {
+        width: 300px;
+    }
+
+    .formInfo h1, .formEndereco h1, .infoCantina h1 {
+        font-size: 25px;
+    }
+
+    .formInfo label, .formEndereco label {
+        font-size: 15px;
+    }
+
+    .formInfo input, .formEndereco input {
+        font-size: 15px;
+    }
+
+    .formInfo input::placeholder, .formEndereco input::placeholder {
+        font-size: 15px;
+    }
+
+    .formEndereco button {
+        font-size: 13px;
+    }
 }

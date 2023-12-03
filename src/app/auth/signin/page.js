@@ -93,7 +93,7 @@ export default function Signin() {
                             />
                         }
 
-                        <div>
+                        <div className={styles.ref}>
                             <span>Não possui conta ainda?</span>
                             <Link href='/auth/signup'>Criar conta</Link>
                         </div>
