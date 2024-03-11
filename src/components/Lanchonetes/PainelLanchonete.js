@@ -48,10 +48,20 @@ export default function PainelLanchonete({ lanchonete, edit, editUrl }) {
                     </div>
                 </div>
                 {edit && (
-                    <Link href={editUrl} className={styles.buttonEdit} passHref>
-                        <div><FontAwesomeIcon icon={faPen}/></div>
-                        Editar
-                    </Link>
+                    <div>
+                        <Link href={editUrl} className={styles.buttonEdit} passHref>
+                            <div><FontAwesomeIcon icon={faPen}/></div>
+                            <p>Editar informações</p>
+                        </Link>
+                        <Link href={`${lanchonete.id}/horarios`}
+                        className={styles.buttonEdit} passHref
+                        >
+                            <div className={styles.divIcon}>
+                            <FontAwesomeIcon className={styles.icon} icon={faClock} />
+                        </div>
+                            <p>Horários de funcionamento</p>
+                        </Link>
+                    </div>
                 )}
             </div>
         </div>

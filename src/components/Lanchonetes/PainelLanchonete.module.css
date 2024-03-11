@@ -82,14 +82,18 @@
     font-size: 20px;
     font-weight: bold;
     border: 2px solid #FA240F;
-    width: 100px;
+    width: 300px;
     padding: 5px;
     border-radius: 10px;
     background-color: #fff;
-    margin: auto;
+    margin: 5px auto;
     display: flex;
+    align-items: center;
     justify-content: space-around;
     cursor: pointer;
+}
+.buttonEdit p {
+    width: 85%;
 }
 
 .buttonEdit:hover {
@@ -118,4 +122,10 @@
         min-width: 300px;
     }
     
+}
+
+@media (max-width: 400px) {
+    .buttonEdit {
+        width: min-content;
+    }
 }

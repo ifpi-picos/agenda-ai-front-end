@@ -64,11 +64,16 @@
     flex-wrap: wrap;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
     .novo_lanche p {
         display: none;
     }
     .novo_lanche .iconFaPlus {
         margin: auto;
+    }
+}
+@media (max-width: 760px) {
+    .nomeLanchonete {
+        display: none;
     }
 }

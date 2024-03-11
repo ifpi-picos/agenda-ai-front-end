@@ -6,7 +6,7 @@ import styles from './Navbar.module.css'
 import logo from '/public/logo-agendaai.png'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { faSignOutAlt, faUser } from "@fortawesome/free-solid-svg-icons";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from "next/navigation";
@@ -26,16 +26,27 @@ export default function Navbar({ opcoesCliente, opcoesGerente }) {
                     <Image src={logo} alt="logo_agendaai" />
                     <h1>Agenda aí</h1>
                 </Link>
-                {(opcoesCliente || opcoesGerente) &&
-                    <div className={styles.opcoesNavbar}>
-                        <button onClick={handleLogout}>
-                            Sair
-                            <div className={styles.divIcon}>
-                                <FontAwesomeIcon icon={faSignOutAlt} />
+                <div className={styles.opcoesNavbar}>
+                    {(opcoesCliente) &&
+                        <Link href='/user' passHref>
+                            <div className={styles}>
+                                <div className={styles.divUserIcon}>
+                                    <FontAwesomeIcon icon={faUser}/>
+                                </div>
                             </div>
-                        </button>
-                    </div>
-                }
+                        </Link>
+                    }
+                    {(opcoesCliente || opcoesGerente) &&
+                        <div className={styles}>
+                            <button onClick={handleLogout}>
+                                Sair
+                                <div className={styles.divIcon}>
+                                    <FontAwesomeIcon icon={faSignOutAlt} />
+                                </div>
+                            </button>
+                        </div>
+                    }
+                </div>
 
             </div>
         </nav>
