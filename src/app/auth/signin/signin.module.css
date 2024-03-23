@@ -9,13 +9,18 @@
 
 .cardLogin{
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 360px;
     padding: 20px;
     border-radius: 10px;
     background: #fdf1cf;
     box-shadow: 5px 5px 0px #656053;
+    text-align: center;
+}
+
+.image img{
+    width: 200px;
+    height: auto;
+    margin: 60px;
 }
 
 .ref {
@@ -43,6 +48,7 @@
     display: flex;
     align-items: center;
     position: relative;
+    width: 100%;
 }
 
 .cardLogin input[type="text"],
@@ -102,4 +108,15 @@
 
 .submitButton:hover {
     background: #FA240F;
-}   
+}
+
+@media (max-width: 700px) {
+    .cardLogin {
+        flex-direction: column;
+        width: 90%;
+    }
+    .image img {
+        width: 150px;
+        margin: 20px;
+    }
+}

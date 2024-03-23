@@ -11,7 +11,8 @@ import { useState } from 'react'
 import Loading from '@/components/Loading'
 import { apiUrl } from '@/config/config'
 import Modal from '@/components/layout/SucessErrorModal'
-
+import Image from 'next/image'
+import signinImage from '/public/signinimage.png'
 
 export default function Signin() {
     const router = useRouter();
@@ -26,7 +27,7 @@ export default function Signin() {
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePasswordVisibility = () => {
-    setShowPassword((prevShowPassword) => !prevShowPassword);
+        setShowPassword((prevShowPassword) => !prevShowPassword);
     };
 
     const onSubmit = (data) => {
@@ -60,30 +61,41 @@ export default function Signin() {
                 <Loading />
             ) : (
                 <div className={styles.login}>
+
                     <div className={styles.cardLogin}>
-                        <h1>Login</h1>
-                        <form className={styles.formLogin} onSubmit={handleSubmit(onSubmit)}>
-                            <div>
-                                <input
-                                    id="login"
-                                    type="email"
-                                    placeholder="Email"
-                                    required
-                                    {...register("email")}
-                                />
+                        <div className={styles.image}>
+                            <Image src={signinImage} />
+                        </div>
+                        <div>
+                            <h1>Login</h1>
+                            <form className={styles.formLogin} onSubmit={handleSubmit(onSubmit)}>
+                                <div className={styles.inputDiv}>
+                                    <input
+                                        id="login"
+                                        type="email"
+                                        placeholder="Email"
+                                        required
+                                        {...register("email")}
+                                    />
+                                </div>
+                                <div className={styles.inputDiv}>
+                                    <input
+                                        type={showPassword ? "text" : "password"}
+                                        id="password"
+                                        placeholder="Senha"
+                                        required
+                                        {...register('password')}
+                                    />
+                                    <FontAwesomeIcon className={styles.icon} icon={showPassword ? faEyeSlash : faEye} onClick={togglePasswordVisibility} />
+                                </div>
+                                <button id='buttonLogin' className={styles.submitButton} type='submit'>Entrar</button>
+                            </form>
+
+                            <div className={styles.ref}>
+                                <span>Não possui conta ainda?</span>
+                                <Link href='/auth/signup'>Criar conta</Link>
                             </div>
-                            <div className={styles.inputDiv}>
-                                <input
-                                    type={showPassword ? "text" : "password"}
-                                    id="password"
-                                    placeholder="Senha"
-                                    required
-                                    {...register('password')}
-                                />
-                                <FontAwesomeIcon className={styles.icon} icon={showPassword ? faEyeSlash : faEye} onClick={togglePasswordVisibility} />
-                            </div>
-                            <button id='buttonLogin' className={styles.submitButton} type='submit'>Entrar</button>
-                        </form>
+                        </div>
 
                         {errorMessage &&
                             <Modal
@@ -92,11 +104,6 @@ export default function Signin() {
                                 message={errorMessage}
                             />
                         }
-
-                        <div className={styles.ref}>
-                            <span>Não possui conta ainda?</span>
-                            <Link href='/auth/signup'>Criar conta</Link>
-                        </div>
                     </div>
                 </div>
             )}
