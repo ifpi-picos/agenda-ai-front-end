@@ -12,7 +12,7 @@ import Loading from '@/components/Loading'
 import { apiUrl } from '@/config/config'
 import Modal from '@/components/layout/SucessErrorModal'
 import Image from 'next/image'
-import signinImage from '/public/signinimage.png'
+import signinImage from '/public/signinImage.png'
 
 export default function Signin() {
     const router = useRouter();
