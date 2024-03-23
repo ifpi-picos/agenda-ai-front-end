@@ -48,7 +48,7 @@ export default function SignupConfirm() {
         if(!nomeUsuario) {
             router.push('/auth/signup')
         }
-    }, [nomeUsuario])
+    }, [nomeUsuario, router])
 
     return (
         <>

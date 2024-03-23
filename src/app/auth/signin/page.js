@@ -64,7 +64,7 @@ export default function Signin() {
 
                     <div className={styles.cardLogin}>
                         <div className={styles.image}>
-                            <Image src={signinImage} />
+                            <Image src={signinImage} alt='imagem login'/>
                         </div>
                         <div>
                             <h1>Login</h1>

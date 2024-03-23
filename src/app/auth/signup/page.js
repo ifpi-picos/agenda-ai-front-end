@@ -94,7 +94,7 @@ export default function useSignup() {
                 <section className={styles.cadastro}>
                     <div className={styles.cardCadastro}>
                         <div className={styles.image}>
-                            <Image src={signupImage} />
+                            <Image src={signupImage} alt="imagem cadastro"/>
                         </div>
                         <div className={styles.divCardCadastro}>
                             <h1>Cadastro</h1>
