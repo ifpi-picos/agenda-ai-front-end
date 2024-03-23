@@ -2,7 +2,7 @@
 import Navbar from "@/components/Navbar"
 import Link from 'next/link'
 
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import axios from 'axios';
 import { useRouter } from "next/navigation";
 
@@ -44,45 +44,47 @@ export default function SignupConfirm() {
         })
     }
 
-    if (nomeUsuario) {
-        return (
-            <>
-                <Navbar />
-                {loading ? (
-                    <Loading />
-                ) : (
-                    <section className={styles.cadastro}>
-                        <div className={styles.cardCadastro}>
-                            <h1>Confirmação de Cadastro</h1>
-                            <form onSubmit={handleSubmit(onSubmit)} className={styles.formCadastro}>
-                                <input
-                                    type='text'
-                                    id='confirmationCode'
-                                    name='confirmationCode'
-                                    placeholder='Digite o código de confirmação'
-                                    required
-                                    {...register("confirmationCode")}
-                                />
-                                <button
-                                    id='buttonConfirm'
-                                    className={styles.submitButton} type='submit'
-                                >
-                                    Confirmar Cadastro
-                                </button>
-                            </form>
-                            {errorMessage &&
-                                <Modal
-                                    isOpen={true}
-                                    onClose={() => setErrorMessage(null)}
-                                    message={errorMessage}
-                                />
-                            }
-                        </div>
-                    </section>
-                )}
-            </>
-        )
-    } else {
-        router.push('/auth/signup')
-    }
+    useEffect(() => {
+        if(!nomeUsuario) {
+            router.push('/auth/signup')
+        }
+    }, [nomeUsuario])
+
+    return (
+        <>
+            <Navbar />
+            {loading && !nomeUsuario ? (
+                <Loading />
+            ) : (
+                <section className={styles.cadastro}>
+                    <div className={styles.cardCadastro}>
+                        <h1>Confirmação de Cadastro</h1>
+                        <form onSubmit={handleSubmit(onSubmit)} className={styles.formCadastro}>
+                            <input
+                                type='text'
+                                id='confirmationCode'
+                                name='confirmationCode'
+                                placeholder='Digite o código de confirmação'
+                                required
+                                {...register("confirmationCode")}
+                            />
+                            <button
+                                id='buttonConfirm'
+                                className={styles.submitButton} type='submit'
+                            >
+                                Confirmar Cadastro
+                            </button>
+                        </form>
+                        {errorMessage &&
+                            <Modal
+                                isOpen={true}
+                                onClose={() => setErrorMessage(null)}
+                                message={errorMessage}
+                            />
+                        }
+                    </div>
+                </section>
+            )}
+        </>
+    )
 };

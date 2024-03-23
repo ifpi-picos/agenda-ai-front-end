@@ -21,7 +21,7 @@ export default function User() {
                 setUserId(decodedToken.id)
             }
         }
-    })
+    }, []);
 
     return (
         <PrivateRoute tipoUsuario='cliente'>
