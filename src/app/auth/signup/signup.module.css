@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 .cadastro {
     width: 100%;
     display: flex;
@@ -18,7 +20,7 @@
 }
 
 .image img{
-    width: 300px;
+    width: 250px;
     height: auto;
     margin: 20px;
 }
@@ -65,6 +67,14 @@
 
 .formCadastro input::placeholder {
     color: #FA680F;
+}
+
+
+.mensagemDeErro {
+    font-size: 15px;
+    padding-top: 5px;
+    color: red;
+    font-weight: bold;
 }
 
 .divSelect {

@@ -24,10 +24,10 @@ import signupImage from '/public/signupimage.png'
 import { useAuthUserContext } from "@/context/users/user";
 
 const schema = yup.object().shape({
-    nomeUsuario: yup.string().required('O nome deve vser preenchido'),
-    email: yup.string().required('O email deve ser preenchido'),
-    password: yup.string().required('A senha deve ser preenchida'),
-    confirmPassword: yup.string().required('A confirmação de senha deve ser preenchida')
+    nomeUsuario: yup.string().min(3, 'O nome de usuário deve ter pelo menos 3 dígitos').required('O nome deve vser preenchido'),
+    email: yup.string().email('Formato de email inválido').required('O email deve ser preenchido'),
+    password: yup.string().min(6, 'A senha deve ter pelo menos 6 caracteres').required('A senha deve ser preenchida'),
+    confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'As senhas devem ser correspondentes').required('A confirmação de senha deve ser preenchida')
 })
 
 export default function useSignup() {
@@ -48,7 +48,8 @@ export default function useSignup() {
 
 
     const { register, handleSubmit, formState: { errors } } = useForm({
-        resolver: yupResolver(schema)
+        resolver: yupResolver(schema),
+        mode: "onChange"
     })
     //"https://agendaai-api.onrender.com/auth/signup"
     const onSubmit = (data) => {
@@ -107,6 +108,7 @@ export default function useSignup() {
                                     required
                                     {...register("nomeUsuario")}
                                 />
+                                {errors.nomeUsuario && <p className={styles.mensagemDeErro}>{errors.nomeUsuario.message}</p>}
                                 <input
                                     type='text'
                                     id='email'
@@ -115,6 +117,7 @@ export default function useSignup() {
                                     required
                                     {...register("email")}
                                 />
+                                {errors.email && <p className={styles.mensagemDeErro}>{errors.email.message}</p>}
 
                                 <div className={styles.inputSenha}>
                                     <input
@@ -127,6 +130,7 @@ export default function useSignup() {
                                     />
                                     <FontAwesomeIcon className={styles.icon} icon={showPassword ? faEyeSlash : faEye} onClick={() => togglePasswordVisibility('password')} />
                                 </div>
+                                {errors.password && <p className={styles.mensagemDeErro}>{errors.password.message}</p>}
 
                                 <div className={styles.inputSenha}>
                                     <input
@@ -139,6 +143,7 @@ export default function useSignup() {
                                     />
                                     <FontAwesomeIcon className={styles.icon} icon={showConfirmPassword ? faEyeSlash : faEye} onClick={() => togglePasswordVisibility('confirmPassword')} />
                                 </div>
+                                {errors.confirmPassword && <p className={styles.mensagemDeErro}>{errors.confirmPassword.message}</p>}
 
                                 <button
                                     id='buttonLogin'
